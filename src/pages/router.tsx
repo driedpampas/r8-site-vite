@@ -11,7 +11,7 @@ const Router = () => {
     return (
         <Routes>
             <Route element={<MainLayout />} path="/">
-                <Route index element={<Navigate to="/Home" replace />} />
+                <Route index element={<Navigate to="/Roms" replace />} />
                 {pageRoutes}
             </Route>
         </Routes>

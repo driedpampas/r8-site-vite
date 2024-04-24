@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "image": "../../../public/los21.jpg",
+            "image": "images/los21.jpg",
             "title": "LineageOS 21 [A14]",
             "subheader": "February 19, 2024",
             "description": [

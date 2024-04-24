@@ -47,7 +47,8 @@ function RomCardView() {
     <Paper elevation={0} sx={{ ...paperStyle, height: 'auto' }}>
       {typedCards.map((card: CardType, index: number) => (
         <Card key={index} sx={{ maxWidth: 345, px: 0, paddingTop: 0 }} variant="elevation">
-          <CardMedia sx={{ height: 0, paddingTop: '56.25%', borderRadius: 5 }}
+          <CardMedia
+            sx={{ height: 0, paddingTop: '56.25%', borderRadius: 5 }}
             image={card.image}
             title={card.title}
           />
