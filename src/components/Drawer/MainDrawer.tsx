@@ -3,25 +3,28 @@ import { FC, useState, useEffect } from 'react';
 
 import { Link, useLocation } from "react-router-dom";
 
-import HomeIcon from '@mui/icons-material/Home';
-import HomeIconOutlined from '@mui/icons-material/HomeOutlined';
+//import HomeIcon from '@mui/icons-material/Home';
+//import HomeIconOutlined from '@mui/icons-material/HomeOutlined';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
 
-import PeopleIcon from '@mui/icons-material/PeopleOutline';
-import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
-import PublicIcon from '@mui/icons-material/PublicOutlined';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernetOutlined';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponentOutlined';
-import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
-import PaletteTwoToneIcon from '@mui/icons-material/Palette';
+//import PeopleIcon from '@mui/icons-material/PeopleOutline';
+//import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
+//import PublicIcon from '@mui/icons-material/PublicOutlined';
+//import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernetOutlined';
+//import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponentOutlined';
+//import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
+//import PaletteTwoToneIcon from '@mui/icons-material/Palette';
+import AndroidIcon from '@mui/icons-material/Android';
+//import EngineeringIcon from '@mui/icons-material/Engineering';
+//import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
 
 const MainDrawer: FC<DrawerProps> = (props) => {
     const { onClose, ...others } = props;
 
-    const categories = [
+    /*const categories = [
         {
-            id: 'Build',
+            id: 'Guide',
             children: [
                 {
                     id: 'Authentication',
@@ -37,7 +40,7 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                 },
             ],
         },
-    ];
+    ];*/
 
     const location = useLocation();
     const [selectedIndex, setSelectedIndex] = useState(location.pathname.replace('/', ''));
@@ -55,27 +58,11 @@ const MainDrawer: FC<DrawerProps> = (props) => {
         <Drawer {...others} onClose={onClose}>
             <Toolbar >
                 <Typography color="inherit" sx={{ fontWeight: 500, letterSpacing: 0.5, fontSize: 20 }}>
-                    Material You
+                    Realme 8 Resources
                 </Typography>
             </Toolbar>
             <List >
                 <Box>
-                    <ListItem >
-                        <ListItemButton component={Link} to='/Home' selected={selectedIndex == 'Home'} onClick={() => handleListItemClick('Home')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'Home' ? <HomeIcon /> : <HomeIconOutlined />}
-                            </ListItemIcon>
-                            <ListItemText>Home</ListItemText>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem >
-                        <ListItemButton component={Link} to='/ColorSystem' selected={selectedIndex == 'ColorSystem'} onClick={() => handleListItemClick('ColorSystem')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'ColorSystem' ? <PaletteTwoToneIcon /> : <PaletteOutlinedIcon />}
-                            </ListItemIcon>
-                            <ListItemText>Color System</ListItemText>
-                        </ListItemButton>
-                    </ListItem>
                     <ListItem >
                         <ListItemButton component={Link} to='/About' selected={selectedIndex == 'About'} onClick={() => handleListItemClick('About')}>
                             <ListItemIcon>
@@ -84,8 +71,24 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                             <ListItemText>About</ListItemText>
                         </ListItemButton>
                     </ListItem>
+                    <ListItem >
+                        <ListItemButton component={Link} to='/roms' selected={selectedIndex == 'roms'} onClick={() => handleListItemClick('roms')}>
+                            <ListItemIcon>
+                                {selectedIndex == 'roms' ? <AndroidIcon /> : <AndroidIcon />}
+                            </ListItemIcon>
+                            <ListItemText>Roms</ListItemText>
+                        </ListItemButton>
+                    </ListItem>
+                    {/*<ListItem >
+                        <ListItemButton component={Link} to='/Landing' selected={selectedIndex == 'Landing'} onClick={() => handleListItemClick('Landing')}>
+                            <ListItemIcon>
+                                {selectedIndex == 'Landing' ? <EngineeringIcon /> : <EngineeringOutlinedIcon />}
+                            </ListItemIcon>
+                            <ListItemText>Landing</ListItemText>
+                        </ListItemButton>
+                    </ListItem>*/}
                 </Box>
-                {categories.map(({ id, children }) => (
+                {/*{categories.map(({ id, children }) => (
                     <Box key={id}>
                         <ListItem sx={{ py: 2, px: 3 }}>
                             <ListItemText sx={{ fontWeight: 'bold' }}>
@@ -103,7 +106,7 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                             </ListItem>
                         ))}
                     </Box>
-                ))}
+                ))}*/}
             </List>
         </Drawer>
     );

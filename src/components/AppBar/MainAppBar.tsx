@@ -1,5 +1,6 @@
-import { FC, useContext, useState } from "react";
-import { AppBar, Avatar, Grid, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography, useScrollTrigger, useTheme } from "@mui/material";
+import { FC, useContext, /*useState*/ } from "react";
+import { AppBar, /*Avatar,*/ Grid, IconButton, Toolbar, Tooltip, Typography, useScrollTrigger } from "@mui/material";
+//import {Menu, MenuItem, useTheme} from "@mui/material";
 import { ThemeModeContext, ThemeSchemeContext } from "../../theme";
 import { useLocation } from "react-router-dom";
 
@@ -7,8 +8,9 @@ import MenuIcon from '@mui/icons-material/MenuTwoTone';
 import ColorIcon from '@mui/icons-material/Shuffle';
 import DarkIcon from '@mui/icons-material/DarkModeOutlined';
 import LightIcon from '@mui/icons-material/LightModeOutlined';
-import RestartIcon from '@mui/icons-material/RefreshOutlined';
-import DownloadIcon from '@mui/icons-material/FileDownload';
+//import RestartIcon from '@mui/icons-material/RefreshOutlined';
+import GitHubIcon from '@mui/icons-material/GitHub';
+//import DownloadIcon from '@mui/icons-material/FileDownload';
 
 interface HeaderProps {
     onDrawerToggle?: () => void,
@@ -17,20 +19,20 @@ interface HeaderProps {
 
 const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
 
-    const { toggleTheme, themeMode, setThemeMode } = useContext(ThemeModeContext);
-    const { generateScheme, themeScheme } = useContext(ThemeSchemeContext);
+    const { toggleTheme, themeMode, /*setThemeMode*/ } = useContext(ThemeModeContext);
+    const { generateScheme, /*themeScheme*/ } = useContext(ThemeSchemeContext);
 
-    const muiTheme = useTheme();
+    //const muiTheme = useTheme();
     const location = useLocation();
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+    //const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    //const open = Boolean(anchorEl);
 
-    const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+    /*const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const closeMenu = () => {
         setAnchorEl(null);
-    };
+    };*/
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,
@@ -51,7 +53,12 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
 
     const onGenerate = () => generateScheme(randomColor());
 
-    const onReset = () => {
+    const openGithub = () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any)?.open("https://github.com/driedpampas/realme-8-megaguide", "_blank");
+    };
+
+    /*const onReset = () => {
         generateScheme('#6750a4');//#6750a4 #005fb0
         setThemeMode('light');
     }
@@ -67,9 +74,9 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
         element.download = "ThemeScheme.json";
         document.body.appendChild(element);
         element.click();
-    };
+    };*/
 
-    const downloadMUITheme = () => {
+    /*const downloadMUITheme = () => {
         closeMenu();
 
         const themeString = JSON.stringify(muiTheme, null, 2);
@@ -80,7 +87,7 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
         element.download = "ThemeMUI.json";
         document.body.appendChild(element);
         element.click();
-    };
+    };*/
 
 
     return (
@@ -113,7 +120,7 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
                                 </IconButton>
                             </Tooltip>
                         </Grid>
-                        <Grid item>
+                        {/*<Grid item>
                             <Tooltip title='Download'>
                                 <IconButton
                                     size='large'
@@ -138,8 +145,15 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
                                 <MenuItem onClick={downloadTheme}>Theme Scheme</MenuItem>
                                 <MenuItem onClick={downloadMUITheme}>MUI Theme</MenuItem>
                             </Menu>
-                        </Grid>
+                        </Grid>*/}
                         <Grid item>
+                            <Tooltip title='GitHub'>
+                                <IconButton size='large' color='inherit' onClick={openGithub}>
+                                    <GitHubIcon />
+                                </IconButton>
+                            </Tooltip>
+                        </Grid>
+                        {/*<Grid item>
                             <Tooltip title='Reset'>
                                 <IconButton size='large' color='inherit' onClick={onReset}>
                                     <RestartIcon />
@@ -154,7 +168,7 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
                                     </Avatar>
                                 </IconButton>
                             </Tooltip>
-                        </Grid>
+                        </Grid>*/}
                     </Grid>
                 </Toolbar>
             </AppBar>

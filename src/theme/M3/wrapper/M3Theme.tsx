@@ -6,7 +6,7 @@ import { ThemeModeContext, ThemeSchemeContext, getMUIComponents, getMUIPalette }
 
 interface M3Props {
     children?: React.ReactNode;
-};
+}
 
 const M3Theme = ({ children }: M3Props) => {
 

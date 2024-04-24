@@ -5,11 +5,11 @@ import { generateDesignTokens, ThemeScheme, ThemeSchemeDefault, useTonalPalette 
 export interface ThemeSchemeContextType {
     generateScheme: (hexColor: string) => void;
     themeScheme: ThemeScheme;
-};
+}
 
 export interface ThemeSchemeProviderProps {
     children?: React.ReactNode;
-};
+}
 
 export const ThemeSchemeContext = createContext<ThemeSchemeContextType>({
     generateScheme: () => { },

@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "image": "../../../public/los21.jpg",
+            "title": "LineageOS 21 [A14]",
+            "subheader": "February 19, 2024",
+            "description": [
+                {
+                    "text": "Note: CTS at the moment it only works on these ",
+                    "url": ""
+                },
+                {
+                    "text": "kernels(KSU zips)",
+                    "url": "https://github.com/kernel8/kernels"
+                },
+                {
+                    "text": " and with this ",
+                    "url": ""
+                },
+                {
+                    "text": "module",
+                    "url": "https://github.com/module8/module"
+                },
+                {
+                    "text": ", in the next posts it will be by default in rom",
+                    "url": ""
+                }
+            ],
+            "method": [
+                [
+                    {
+                        "text": "Kernels",
+                        "url": "https://github.com/kernel8/kernels"
+                    },
+                    {
+                        "text": " in our github repo",
+                        "url": ""
+                    }
+                ]
+            ]
+        }
+    ]
+}

@@ -10,7 +10,7 @@ export type ThemeModeContextType = {
 
 export interface ThemeModeProviderProps {
     children?: React.ReactNode;
-};
+}
 
 export const ThemeModeContext = createContext<ThemeModeContextType>({
     themeMode: 'light',
