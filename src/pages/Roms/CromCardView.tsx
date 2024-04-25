@@ -1,7 +1,7 @@
 // CromCardView.tsx
 // fetching the json from the server on demand has to be fixed and will be enabled in a later version
-import { useState, /*useEffect*/ } from 'react';
-import { Paper, useMediaQuery, Typography, useTheme, Link, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,/*Button, Avatar, */CardActions, Stack  } from '@mui/material';
+import React, { useState, /*useEffect*/ } from 'react';
+import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Button, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,/*Button, Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as cardsData from './cards.json';
 import { AVersionView } from '../../components/AVersionView';
 
@@ -9,6 +9,8 @@ import { AVersionView } from '../../components/AVersionView';
 //import ShareIcon from "@mui/icons-material/ShareOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
+//import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+//import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 //import MoreVertIcon from "@mui/icons-material/MoreVertOutlined";
 
 function RomCardView() {
@@ -16,12 +18,15 @@ function RomCardView() {
     image: string;
     title: string;
     subheader: string;
-    description: { text: string; url: string; }[];
+    description: Array<{
+      text: string;
+      url: string;
+      menuItems?: Array<{ text: string; url: string; }>;
+    }>;
     more: { text: string; url: string; }[][];
     androidVersion: string;
+    downloadOptions: Array<{ text: string; url: string; }>;
   };
-
-  // for bundled cards.json files. we're moving to hosted elsewhere bc we can
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const typedCards: CardType[] = (cardsData as any).data as CardType[];
   
@@ -53,6 +58,26 @@ function RomCardView() {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
+
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const [downloadAnchorEl, setDownloadAnchorEl] = useState<null | HTMLElement>(null);
+
+    const handleDownloadClick = (event: React.MouseEvent<HTMLElement>) => {
+      setDownloadAnchorEl(event.currentTarget);
+    };
+
+    const handleDownloadClose = () => {
+      setDownloadAnchorEl(null);
+    };
 
     const theme = useTheme();
     const isSmUp = useMediaQuery(theme.breakpoints.up('md'));
@@ -91,9 +116,24 @@ function RomCardView() {
           />
           <CardContent>
             <Typography variant="body2" component="p" color="textPrimary">
-            {card.description.map((part, index) => (
-              part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text
-            ))}
+              {card.description.map((part, index) => (
+                part.menuItems && part.menuItems.length > 0 ? (
+                  <span key={index}>
+                    <Link onClick={handleClick} color="primary">{part.text}</Link>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleClose}
+                    >
+                      {part.menuItems.map((item, index) => (
+                        <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
+                      ))}
+                    </Menu>
+                  </span>
+                ) : (
+                  part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text
+                )
+              ))}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -104,13 +144,67 @@ function RomCardView() {
             >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
+              <Button color="inherit" onClick={handleDownloadClick}>
+                Download
+              </Button>
+              <Menu
+                anchorEl={downloadAnchorEl}
+                open={Boolean(downloadAnchorEl)}
+                onClose={handleDownloadClose}
+              >            <CardContent>
+              {card.more.map((step, index) => (
+                <Typography key={index} paragraph>
+                  {step.map((part, index) => (
+                    part.url ? (
+                      <Link key={index} href={part.url} color="primary">
+                        {part.text.split('\n').map((line, i) => (
+                          <React.Fragment key={i}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}
+                      </Link>
+                    ) : (
+                      part.text.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))
+                    )
+                  ))}
+                </Typography>
+              ))}
+            </CardContent>
+                {card.downloadOptions.map((option, index) => (
+                  <MenuItem key={index} onClick={handleDownloadClose} component="a" href={option.url}>
+                    {option.text}
+                  </MenuItem>
+                ))}
+            </Menu>
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               {card.more.map((step, index) => (
                 <Typography key={index} paragraph>
                   {step.map((part, index) => (
-                    part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text
+                    part.url ? (
+                      <Link key={index} href={part.url} color="primary">
+                        {part.text.split('\n').map((line, i) => (
+                          <React.Fragment key={i}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}
+                      </Link>
+                    ) : (
+                      part.text.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))
+                    )
                   ))}
                 </Typography>
               ))}
