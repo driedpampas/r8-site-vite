@@ -2,7 +2,7 @@
     "data": [
         {
             "image": "images/los21.jpg",
-            "title": "LineageOS 21 [A14]",
+            "title": "LineageOS 21",
             "subheader": "February 19, 2024",
             "description": [
                 {
@@ -26,7 +26,7 @@
                     "url": ""
                 }
             ],
-            "method": [
+            "more": [
                 [
                     {
                         "text": "Kernels",
@@ -37,7 +37,8 @@
                         "url": ""
                     }
                 ]
-            ]
+            ],
+            "androidVersion": "A14"
         }
     ]
 }

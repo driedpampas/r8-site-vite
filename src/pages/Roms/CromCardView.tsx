@@ -1,13 +1,15 @@
 // CromCardView.tsx
-import { useState } from 'react';
-import { Paper, useMediaQuery, Typography, useTheme, Link, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,/*Button, Avatar, */CardActions  } from '@mui/material';
+// fetching the json from the server on demand has to be fixed and will be enabled in a later version
+import { useState, /*useEffect*/ } from 'react';
+import { Paper, useMediaQuery, Typography, useTheme, Link, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,/*Button, Avatar, */CardActions, Stack  } from '@mui/material';
 import * as cardsData from './cards.json';
+import { AVersionView } from '../../components/AVersionView';
 
 //import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
 //import ShareIcon from "@mui/icons-material/ShareOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
-import MoreVertIcon from "@mui/icons-material/MoreVertOutlined";
+//import MoreVertIcon from "@mui/icons-material/MoreVertOutlined";
 
 function RomCardView() {
   type CardType = {
@@ -15,11 +17,37 @@ function RomCardView() {
     title: string;
     subheader: string;
     description: { text: string; url: string; }[];
-    method: { text: string; url: string; }[][];
+    more: { text: string; url: string; }[][];
+    androidVersion: string;
   };
+
+  // for bundled cards.json files. we're moving to hosted elsewhere bc we can
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const typedCards: CardType[] = (cardsData as any).data as CardType[];
-    
+  
+  /*const [typedCards, setTypedCards] = useState<CardType[]>([]);
+  useEffect(() => {
+    fetch('https://dry.nl.eu.org/json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        const cleanedData = data.replace(/[\n\t]/g, '');
+        const parsedData = JSON.parse(cleanedData);
+        if (Array.isArray(parsedData.data)) {
+          setTypedCards(parsedData.data);
+        } else {
+          console.error('Data is not an array:', parsedData.data);
+        }
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+  }, []);*/
+
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
@@ -53,12 +81,12 @@ function RomCardView() {
             title={card.title}
           />
           <CardHeader
-            action={
-              <IconButton color="inherit">
-                <MoreVertIcon />
-              </IconButton>
+            title={
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" component="div">{card.title}</Typography>
+                <AVersionView text={card.androidVersion} />
+              </Stack>
             }
-            title={card.title}
             subheader={card.subheader}
           />
           <CardContent>
@@ -79,7 +107,7 @@ function RomCardView() {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              {card.method.map((step, index) => (
+              {card.more.map((step, index) => (
                 <Typography key={index} paragraph>
                   {step.map((part, index) => (
                     part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text
