@@ -1,15 +1,17 @@
 import { Stack, Typography, useTheme } from '@mui/material';
+import { CSSProperties } from 'react';
 
-interface AVersionViewProps {
+interface BoldPillProps {
     text: string;
+    style?: CSSProperties;
 }
 
-export const AVersionView = ({ text }: AVersionViewProps) => {
+export const BoldPill = ({ text, style }: BoldPillProps) => {
 
     const { palette } = useTheme();
 
     return (
-        <Stack direction='row' spacing={1} sx={{ my: 1 }}>
+        <Stack direction='row' spacing={1} sx={{ my: 1 }} style={style}>
             <Typography
                 variant='button'
                 alignSelf={'center'}

@@ -53,11 +53,6 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
 
     const onGenerate = () => generateScheme(randomColor());
 
-    const openGithub = () => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any)?.open("https://github.com/driedpampas/realme-8-megaguide", "_blank");
-    };
-
     /*const onReset = () => {
         generateScheme('#6750a4');//#6750a4 #005fb0
         setThemeMode('light');
@@ -148,7 +143,7 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
                         </Grid>*/}
                         <Grid item>
                             <Tooltip title='GitHub'>
-                                <IconButton size='large' color='inherit' onClick={openGithub}>
+                                <IconButton size='large' color='inherit' component="a" href={"https://github.com/driedpampas/realme-8-megaguide"}>
                                     <GitHubIcon />
                                 </IconButton>
                             </Tooltip>

@@ -1,6 +1,7 @@
 import { routerType } from "../types/router.types";
 import About from "./About/About";
-import Roms from "./Roms/roms";
+import Roms from "./Roms/Roms";
+import Kernels from "./Kernels/Kernels";
 
 const pagesData: routerType[] = [
     {
@@ -9,9 +10,14 @@ const pagesData: routerType[] = [
         title: "about"
     },
     {
-        path: "roms",
+        path: "Roms",
         element: <Roms />,
-        title: "roms"
+        title: "Roms"
+    },
+    {
+        path: "Kernels",
+        element: <Kernels />,
+        title: "Kernels"
     }
 ];
 

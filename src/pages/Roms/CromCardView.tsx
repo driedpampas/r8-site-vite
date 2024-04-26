@@ -1,15 +1,15 @@
 // CromCardView.tsx
 // fetching the json from the server on demand has to be fixed and will be enabled in a later version
 import React, { useState, /*useEffect*/ } from 'react';
-import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Button, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,/*Button, Avatar,*/ CardActions, Stack  } from '@mui/material';
+import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as cardsData from './cards.json';
-import { AVersionView } from '../../components/AVersionView';
+import { BoldPill } from '../../components/BoldPill';
 
 //import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
 //import ShareIcon from "@mui/icons-material/ShareOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
-//import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 //import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 //import MoreVertIcon from "@mui/icons-material/MoreVertOutlined";
 
@@ -53,12 +53,14 @@ function RomCardView() {
       });
   }, []);*/
 
-    const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(new Array(typedCards.length).fill(false));
+  const [ariaExpanded, setAriaExpanded] = useState(new Array(typedCards.length).fill(false));
+  const handleExpandClick = (index: number) => {
+    setExpanded(expanded.map((ex, i) => i === index ? !ex : false));
+    setAriaExpanded(ariaExpanded.map((ex, i) => i === index ? !ex : ex));
+  };
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    }
-
+  
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -95,11 +97,28 @@ function RomCardView() {
       mr: isSxUp ? 2 : 0,
       ml: isSxUp ? (isSmUp ? 0 : 2) : 0
   };
+
+  const cardsContainerStyle: SxProps = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'start',
+    width: '100%', // Add this line
+  };
     
+  const cardStyle: SxProps = {
+    maxWidth: 345,
+    width: '100%', // Add this line
+    px: 0,
+    paddingTop: 0,
+    margin: '0.5em', // Add this line
+    height: 'fit-content', // Add this line
+  };
+  
   return (
-    <Paper elevation={0} sx={{ ...paperStyle, height: 'auto' }}>
+    <Paper elevation={0} sx={{ ...paperStyle, height: 'auto', ...cardsContainerStyle }}>  
       {typedCards.map((card: CardType, index: number) => (
-        <Card key={index} sx={{ maxWidth: 345, px: 0, paddingTop: 0 }} variant="elevation">
+        <Card key={index} sx={{ ...cardStyle }} variant="elevation">
           <CardMedia
             sx={{ height: 0, paddingTop: '56.25%', borderRadius: 5 }}
             image={card.image}
@@ -109,81 +128,60 @@ function RomCardView() {
             title={
               <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h6" component="div">{card.title}</Typography>
-                <AVersionView text={card.androidVersion} />
+                <BoldPill text={card.androidVersion} />
               </Stack>
             }
             subheader={card.subheader}
           />
           <CardContent>
-            <Typography variant="body2" component="p" color="textPrimary">
-              {card.description.map((part, index) => (
-                part.menuItems && part.menuItems.length > 0 ? (
-                  <span key={index}>
-                    <Link onClick={handleClick} color="primary">{part.text}</Link>
-                    <Menu
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                    >
-                      {part.menuItems.map((item, index) => (
-                        <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
-                      ))}
-                    </Menu>
-                  </span>
-                ) : (
-                  part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text
-                )
-              ))}
-            </Typography>
+          <Typography variant="body2" component="p" color="textPrimary">
+            {card.description.map((part, index) => (
+              part.menuItems && part.menuItems.length > 0 ? (
+                <span key={index}>
+                  <Link onClick={handleClick} color="primary">{part.text}</Link>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                  >
+                    {part.menuItems.map((item, index) => (
+                      <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
+                    ))}
+                  </Menu>
+                </span>
+              ) : (
+                part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text.split('\n').map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                  </React.Fragment>
+                ))
+              )
+            ))}
+          </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <IconButton color="inherit"
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
+              onClick={() => handleExpandClick(index)}
+              aria-expanded={ariaExpanded[index]}
               aria-label="show more"
+              sx={{ marginRight: '0.5em' }}
             >
-              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              {expanded[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
-              <Button color="inherit" onClick={handleDownloadClick}>
-                Download
-              </Button>
-              <Menu
-                anchorEl={downloadAnchorEl}
-                open={Boolean(downloadAnchorEl)}
-                onClose={handleDownloadClose}
-              >            <CardContent>
-              {card.more.map((step, index) => (
-                <Typography key={index} paragraph>
-                  {step.map((part, index) => (
-                    part.url ? (
-                      <Link key={index} href={part.url} color="primary">
-                        {part.text.split('\n').map((line, i) => (
-                          <React.Fragment key={i}>
-                            {line}
-                            <br />
-                          </React.Fragment>
-                        ))}
-                      </Link>
-                    ) : (
-                      part.text.split('\n').map((line, i) => (
-                        <React.Fragment key={i}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))
-                    )
-                  ))}
-                </Typography>
+            <Button startIcon={<CloudDownloadIcon />} variant="tonal" onClick={handleDownloadClick} sx={{ marginRight: '0.5em' }} >Download</Button>
+            <Menu
+              anchorEl={downloadAnchorEl}
+              open={Boolean(downloadAnchorEl)}
+              onClose={handleDownloadClose}
+            >
+              {card.downloadOptions.map((option, index) => (
+                <MenuItem key={index} onClick={handleDownloadClose} component="a" href={option.url}>
+                  {option.text}
+                </MenuItem>
               ))}
-            </CardContent>
-                {card.downloadOptions.map((option, index) => (
-                  <MenuItem key={index} onClick={handleDownloadClose} component="a" href={option.url}>
-                    {option.text}
-                  </MenuItem>
-                ))}
             </Menu>
           </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
             <CardContent>
               {card.more.map((step, index) => (
                 <Typography key={index} paragraph>

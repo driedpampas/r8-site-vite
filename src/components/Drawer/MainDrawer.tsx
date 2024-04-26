@@ -1,23 +1,12 @@
 import { Box, Drawer, DrawerProps, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
 import { FC, useState, useEffect } from 'react';
-
 import { Link, useLocation } from "react-router-dom";
 
-//import HomeIcon from '@mui/icons-material/Home';
-//import HomeIconOutlined from '@mui/icons-material/HomeOutlined';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
-
-//import PeopleIcon from '@mui/icons-material/PeopleOutline';
-//import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
-//import PublicIcon from '@mui/icons-material/PublicOutlined';
-//import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernetOutlined';
-//import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponentOutlined';
-//import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
-//import PaletteTwoToneIcon from '@mui/icons-material/Palette';
 import AndroidIcon from '@mui/icons-material/Android';
-//import EngineeringIcon from '@mui/icons-material/Engineering';
-//import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
+import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
+import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
 
 const MainDrawer: FC<DrawerProps> = (props) => {
     const { onClose, ...others } = props;
@@ -72,11 +61,19 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem >
-                        <ListItemButton component={Link} to='/roms' selected={selectedIndex == 'roms'} onClick={() => handleListItemClick('roms')}>
+                        <ListItemButton component={Link} to='/Roms' selected={selectedIndex == 'Roms'} onClick={() => handleListItemClick('Roms')}>
                             <ListItemIcon>
-                                {selectedIndex == 'roms' ? <AndroidIcon /> : <AndroidIcon />}
+                                {selectedIndex == 'Roms' ? <AndroidIcon /> : <AndroidIcon />}
                             </ListItemIcon>
                             <ListItemText>Roms</ListItemText>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem >
+                        <ListItemButton component={Link} to='/Kernels' selected={selectedIndex == 'Kernels'} onClick={() => handleListItemClick('Kernels')}>
+                            <ListItemIcon>
+                                {selectedIndex == 'Kernels' ? <AutoAwesomeMosaicIcon /> : <AutoAwesomeMosaicOutlinedIcon />}
+                            </ListItemIcon>
+                            <ListItemText>Kernels</ListItemText>
                         </ListItemButton>
                     </ListItem>
                     {/*<ListItem >

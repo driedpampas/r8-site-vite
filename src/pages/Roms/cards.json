@@ -1,7 +1,27 @@
 {
     "data": [
         {
-            "image": "images/los21.jpg",
+            "image": "images/roms/derpfest-a14.jpg",
+            "title": "DerpFest",
+            "subheader": "April 24, 2024",
+            "androidVersion": "A14",
+            "description": [
+                {"text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• Clean flash recommended\n• Don't change kernel\n• Flash with OFOX recovery."}
+            ],
+            "more": [
+                [
+                    {
+                        "text": "Changelog:\n• Based on April security patch & latest QPR2 sources\n• Safetynet & CTS pass by default\n• New Revolt kernel and upstream to 4.14.340\n• Implemented fingerprintd thaw hack from OnePlus 3 (Faster unlocks)\n• Fix USB DAC\n• Remove unneeded USB functions\n• Switch to common USB service\n• Build common MediaTek Gadget HAL\n• Switch to powerhint and refactor and decrease interaction boost\n• Refactor and configure cgroup\n• Update IMS from plato\n• Fix volume bar\n• Switch to prebuilt libwifi-hal and build libwifi-hal-wrapper",
+                        "url": ""
+                    }
+                ]
+            ],
+            "downloadOptions": [
+                { "text": "Derpfest - GAPPS", "url": "https://mega.nz/file/Mz9zHawY#cuuWp0viRlQYTjFnXjdry0uk839Uk811UaB4DhACGkM"}
+            ]
+        },  
+        {
+            "image": "images/roms/los21.jpg",
             "title": "LineageOS 21",
             "subheader": "February 19, 2024",
             "description": [
