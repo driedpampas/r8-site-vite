@@ -71,14 +71,18 @@ function RomCardView() {
       setAnchorEl(null);
     };
 
-    const [downloadAnchorEl, setDownloadAnchorEl] = useState<null | HTMLElement>(null);
+    const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(typedCards.length).fill(null));
 
-    const handleDownloadClick = (event: React.MouseEvent<HTMLElement>) => {
-      setDownloadAnchorEl(event.currentTarget);
+    const handleDownloadClick = (index: number) => (event: React.MouseEvent<HTMLElement>) => {
+      const newDownloadAnchorEl = [...downloadAnchorEl];
+      newDownloadAnchorEl[index] = event.currentTarget;
+      setDownloadAnchorEl(newDownloadAnchorEl);
     };
 
-    const handleDownloadClose = () => {
-      setDownloadAnchorEl(null);
+    const handleDownloadClose = (index: number) => () => {
+      const newDownloadAnchorEl = [...downloadAnchorEl];
+      newDownloadAnchorEl[index] = null;
+      setDownloadAnchorEl(newDownloadAnchorEl);
     };
 
     const theme = useTheme();
@@ -134,30 +138,31 @@ function RomCardView() {
             subheader={card.subheader}
           />
           <CardContent>
-          <Typography variant="body2" component="p" color="textPrimary">
-            {card.description.map((part, index) => (
-              part.menuItems && part.menuItems.length > 0 ? (
-                <span key={index}>
-                  <Link onClick={handleClick} color="primary">{part.text}</Link>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                  >
-                    {part.menuItems.map((item, index) => (
-                      <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
-                    ))}
-                  </Menu>
-                </span>
-              ) : (
-                part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text.split('\n').map((line, i) => (
-                  <React.Fragment key={i}>
-                    {line}
-                  </React.Fragment>
-                ))
-              )
-            ))}
-          </Typography>
+            <Typography variant="body2" component="p" color="textPrimary">
+              {card.description.map((part, index) => (
+                part.menuItems && part.menuItems.length > 0 ? (
+                  <span key={index}>
+                    <Link onClick={handleClick} color="primary">{part.text}</Link>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleClose}
+                    >
+                      {part.menuItems.map((item, index) => (
+                        <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
+                      ))}
+                    </Menu>
+                  </span>
+                ) : (
+                  part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text.replace(/\\n/g, '\n').split('\n').map((line, i, arr) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i < arr.length - 1 ? <br /> : null}
+                    </React.Fragment>
+                  ))
+                )
+              ))}
+            </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <IconButton color="inherit"
@@ -168,14 +173,10 @@ function RomCardView() {
             >
               {expanded[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
-            <Button startIcon={<CloudDownloadIcon />} variant="tonal" onClick={handleDownloadClick} sx={{ marginRight: '0.5em' }} >Download</Button>
-            <Menu
-              anchorEl={downloadAnchorEl}
-              open={Boolean(downloadAnchorEl)}
-              onClose={handleDownloadClose}
-            >
+            <Button startIcon={<CloudDownloadIcon />} variant="tonal" onClick={handleDownloadClick(index)} sx={{ marginRight: '0.5em' }} >Download</Button>
+            <Menu anchorEl={downloadAnchorEl[index]} open={Boolean(downloadAnchorEl[index])} onClose={handleDownloadClose(index)}>
               {card.downloadOptions.map((option, index) => (
-                <MenuItem key={index} onClick={handleDownloadClose} component="a" href={option.url}>
+                <MenuItem key={index} onClick={handleDownloadClose(index)} component="a" href={option.url}>
                   {option.text}
                 </MenuItem>
               ))}
@@ -186,23 +187,25 @@ function RomCardView() {
               {card.more.map((step, index) => (
                 <Typography key={index} paragraph>
                   {step.map((part, index) => (
-                    part.url ? (
-                      <Link key={index} href={part.url} color="primary">
-                        {part.text.split('\n').map((line, i) => (
+                    <span key={index}>
+                      {part.url ? (
+                        <Link href={part.url} color="primary">
+                          {part.text.split('\n').map((line, i, arr) => (
+                            <React.Fragment key={i}>
+                              {line}
+                              {i < arr.length - 1 ? <br /> : null}
+                            </React.Fragment>
+                          ))}
+                        </Link>
+                      ) : (
+                        part.text.split('\n').map((line, i, arr) => (
                           <React.Fragment key={i}>
                             {line}
-                            <br />
+                            {i < arr.length - 1 ? <br /> : null}
                           </React.Fragment>
-                        ))}
-                      </Link>
-                    ) : (
-                      part.text.split('\n').map((line, i) => (
-                        <React.Fragment key={i}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))
-                    )
+                        ))
+                      )}
+                    </span>
                   ))}
                 </Typography>
               ))}

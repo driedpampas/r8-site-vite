@@ -1,6 +1,18 @@
 {
     "data": [
         {
+            "image": "images/roms/los21a.jpg",
+            "title": "LineageOS 21",
+            "subheader": "April 26, 2024",
+            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• Clean flash recommended\n• Don't change kernel except for those in the post\n• Disable the build signature in trust\n• Flash with OFOX recovery."}],
+            "androidVersion": "A14",
+            "downloadOptions": [
+                { "text": "Lineage 21", "url": "https://mega.nz/file/V3FGHShQ#HcefDr24faQ5U1iMgmmnwr_1X7ICz0W1mbgNC57u5e8"}, {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download?use_mirror=unlimited&download=&failedmirror=kumisystems.dl.sourceforge.net"},
+                {"text": "Revolt KSU - undervolt", "url": "https://mega.nz/file/s7FCjYaS#r-QRS1LM3sZT4gZLHZqqYVYVi5U7TsLKWJfgMl85-v4"}
+            ],
+            "more": [[{"text": "Changelog:\n• Initial stable A14 Build\n• Based on April security patch & latest QPR2 sources\n• For CTS Fix flash ", "url": ""},{"text": "2 modules", "url": "https://github.com/daboynb/PlayIntegrityNEXT/tree/main/Fp_Downloader.apk%20to%20use%20with%20play%20integrity%20by%20chiteroman#instructions"}]]
+        },
+        {
             "image": "images/roms/derpfest-a14.jpg",
             "title": "DerpFest",
             "subheader": "April 24, 2024",
@@ -31,7 +43,6 @@
                 },
                 {
                     "text": "kernels(KSU zips)",
-                    "url": "https://github.com/kernel8/kernels",
                     "menuItems": [
                       { "text": "KSU v0.7.6 - Standard", "url": "https://mega.nz/file/k2VEgJSA#gx1EK4lIhRi8D40oUPSppLQNK-xLNFWxrV5zJN9hlVc" },
                       { "text": "KSU v0.7.6 - Undervolt", "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU" }

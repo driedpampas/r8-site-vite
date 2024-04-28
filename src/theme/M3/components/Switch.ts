@@ -6,7 +6,7 @@ interface M3Switch {
         styleOverrides?: ComponentsOverrides<Theme>['MuiSwitch'];
         variants?: ComponentsVariants['MuiSwitch'];
     }
-};
+}
 
 export const getSwitch = (theme: Theme): M3Switch => {
     const { palette } = theme;

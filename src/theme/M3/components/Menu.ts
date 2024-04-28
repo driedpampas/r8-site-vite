@@ -23,7 +23,8 @@ export const getMenu = (theme: Theme): M3Menu => {
                 paper: {
                     backgroundColor: palette.surfaceContainerLow.main,
                     boxShadow: theme.shadows[3],
-                    color: palette.onSurface.main
+                    color: palette.onSurface.main,
+                    borderRadius: 20, // Updated line
                 }
             }
         }
