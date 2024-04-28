@@ -1,4 +1,4 @@
-import { Stack, Typography, Card, CardContent, CardActions, Button, Paper } from '@mui/material';
+import { Stack, Typography, Card, CardContent, CardActions, Button, Paper, Alert, AlertTitle} from '@mui/material';
 import data from './kernels.json'; 
 import { BoldPill } from '../../components/BoldPill';
 
@@ -19,6 +19,10 @@ const kernelDataArray = data as KernelData[];
 function KernelCardView () {
     return (
         <div>
+            <Alert severity="warning" onClose={() => { }} sx={{ marginBottom: '1em' }}>
+                <AlertTitle>Warning</AlertTitle>
+                These kernels are <strong>only for custom roms</strong>
+            </Alert>
             {kernelDataArray.map((kernelData, index) => (
                 <Paper key={index} style={{ boxShadow: 'none', border: 'none', marginTop: index !== 0 ? '1.5em' : '0' }}>
                     <Stack spacing={3}>
