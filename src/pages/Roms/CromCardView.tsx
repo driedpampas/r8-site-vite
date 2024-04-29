@@ -165,14 +165,17 @@ function RomCardView() {
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <IconButton color="inherit"
-              onClick={() => handleExpandClick(index)}
-              aria-expanded={ariaExpanded[index]}
-              aria-label="show more"
-              sx={{ marginRight: '0.5em' }}
-            >
-              {expanded[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
+            {card.more.length > 0 && (
+              <IconButton
+                color="inherit"
+                onClick={() => handleExpandClick(index)}
+                aria-expanded={ariaExpanded[index]}
+                aria-label="show more"
+                sx={{ marginRight: '0.5em' }}
+              >
+                {expanded[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+            )}
             <Button startIcon={<CloudDownloadIcon />} variant="tonal" onClick={handleDownloadClick(index)} sx={{ marginRight: '0.5em' }} >Download</Button>
             <Menu anchorEl={downloadAnchorEl[index]} open={Boolean(downloadAnchorEl[index])} onClose={handleDownloadClose(index)}>
               {card.downloadOptions.map((option, index) => (

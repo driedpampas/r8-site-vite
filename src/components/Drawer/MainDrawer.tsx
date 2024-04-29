@@ -2,8 +2,8 @@ import { Box, Drawer, DrawerProps, List, ListItem, ListItemButton, ListItemIcon,
 import { FC, useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 
-import InfoIcon from '@mui/icons-material/Info';
-import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
+//import InfoIcon from '@mui/icons-material/Info';
+//import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
 import AndroidIcon from '@mui/icons-material/Android';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
@@ -52,14 +52,14 @@ const MainDrawer: FC<DrawerProps> = (props) => {
             </Toolbar>
             <List >
                 <Box>
-                    <ListItem >
+                    {/*<ListItem >
                         <ListItemButton component={Link} to='/About' selected={selectedIndex == 'About'} onClick={() => handleListItemClick('About')}>
                             <ListItemIcon>
                                 {selectedIndex == 'About' ? <InfoIcon /> : <InfoIconOutlined />}
                             </ListItemIcon>
                             <ListItemText>About</ListItemText>
                         </ListItemButton>
-                    </ListItem>
+                    </ListItem>*/}
                     <ListItem >
                         <ListItemButton component={Link} to='/Roms' selected={selectedIndex == 'Roms'} onClick={() => handleListItemClick('Roms')}>
                             <ListItemIcon>
