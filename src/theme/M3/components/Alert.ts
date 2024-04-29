@@ -6,7 +6,7 @@ interface M3Alert {
         styleOverrides?: ComponentsOverrides<Theme>['MuiAlert'];
         variants?: ComponentsVariants['MuiAlert'];
     }
-};
+}
 
 export const getAlert = (theme: Theme): M3Alert => {
     const { palette } = theme;
