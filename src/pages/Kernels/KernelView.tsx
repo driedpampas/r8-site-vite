@@ -64,7 +64,7 @@ function KernelCardView () {
                                 key={cardIndex} 
                                 variant="elevation" 
                                 sx={isSmUp ? 
-                                    { marginLeft: cardIndex !== 0 ? '1.5em' : '0'} : 
+                                    { marginRight: '1.5em', marginBottom: '1.5em', /*width: 'calc(50% - 1.5em)'*/} : 
                                     { marginBottom: '1.5em', width: '100%' }
                                 }
                             >

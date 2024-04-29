@@ -60,46 +60,39 @@ function RomCardView() {
     setAriaExpanded(ariaExpanded.map((ex, i) => i === index ? !ex : ex));
   };
 
-  
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {setAnchorEl(event.currentTarget);};
+  const handleClose = () => {setAnchorEl(null);};
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorEl(event.currentTarget);
-    };
+  const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(typedCards.length).fill(null));
 
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+  const handleDownloadClick = (index: number) => (event: React.MouseEvent<HTMLElement>) => {
+    const newDownloadAnchorEl = [...downloadAnchorEl];
+    newDownloadAnchorEl[index] = event.currentTarget;
+    setDownloadAnchorEl(newDownloadAnchorEl);
+  };
 
-    const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(typedCards.length).fill(null));
+  const handleDownloadClose = (index: number) => () => {
+    const newDownloadAnchorEl = [...downloadAnchorEl];
+    newDownloadAnchorEl[index] = null;
+    setDownloadAnchorEl(newDownloadAnchorEl);
+  };
 
-    const handleDownloadClick = (index: number) => (event: React.MouseEvent<HTMLElement>) => {
-      const newDownloadAnchorEl = [...downloadAnchorEl];
-      newDownloadAnchorEl[index] = event.currentTarget;
-      setDownloadAnchorEl(newDownloadAnchorEl);
-    };
+  const theme = useTheme();
+  const isSmUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isSxUp = useMediaQuery(theme.breakpoints.up('sm'));
 
-    const handleDownloadClose = (index: number) => () => {
-      const newDownloadAnchorEl = [...downloadAnchorEl];
-      newDownloadAnchorEl[index] = null;
-      setDownloadAnchorEl(newDownloadAnchorEl);
-    };
+  const radius = isSxUp ? 4 : 0;
 
-    const theme = useTheme();
-    const isSmUp = useMediaQuery(theme.breakpoints.up('md'));
-    const isSxUp = useMediaQuery(theme.breakpoints.up('sm'));
-
-    const radius = isSxUp ? 4 : 0;
-
-    const paperStyle: SxProps = {
-      py: 2,
-      px: 2,
-      borderRadius: radius,
-      //height: isSxUp ? 'auto' : 1,
-      mt: 0,
-      mb: isSxUp ? 2 : 0,
-      mr: isSxUp ? 2 : 0,
-      ml: isSxUp ? (isSmUp ? 0 : 2) : 0
+  const paperStyle: SxProps = {
+    py: 2,
+    px: 2,
+    borderRadius: radius,
+    //height: isSxUp ? 'auto' : 1,
+    mt: 0,
+    mb: isSxUp ? 2 : 0,
+    mr: isSxUp ? 2 : 0,
+    ml: isSxUp ? (isSmUp ? 0 : 2) : 0
   };
 
   const cardsContainerStyle: SxProps = {
@@ -107,16 +100,16 @@ function RomCardView() {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'start',
-    width: '100%', // Add this line
+    width: '100%',
   };
     
   const cardStyle: SxProps = {
     maxWidth: 345,
-    width: '100%', // Add this line
+    width: '100%',
     px: 0,
     paddingTop: 0,
-    margin: '0.5em', // Add this line
-    height: 'fit-content', // Add this line
+    margin: '0.5em',
+    height: 'fit-content',
   };
   
   return (
@@ -142,7 +135,9 @@ function RomCardView() {
               {card.description.map((part, index) => (
                 part.menuItems && part.menuItems.length > 0 ? (
                   <span key={index}>
-                    <Link onClick={handleClick} color="primary">{part.text}</Link>
+                    <Link onClick={handleClick} color="primary">
+                      {part.text.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
+                    </Link>
                     <Menu
                       anchorEl={anchorEl}
                       open={Boolean(anchorEl)}
@@ -154,9 +149,14 @@ function RomCardView() {
                     </Menu>
                   </span>
                 ) : (
-                  part.url ? <Link key={index} href={part.url} color="primary">{part.text}</Link> : part.text.replace(/\\n/g, '\n').split('\n').map((line, i, arr) => (
+                  part.url ? 
+                  <Link key={index} href={part.url} color="primary">
+                    {part.text.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
+                  </Link> 
+                  : 
+                  part.text.replace(/\\n/g, '\n').split('\n').map((line, i, arr) => (
                     <React.Fragment key={i}>
-                      {line}
+                      {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                       {i < arr.length - 1 ? <br /> : null}
                     </React.Fragment>
                   ))
@@ -195,7 +195,7 @@ function RomCardView() {
                         <Link href={part.url} color="primary">
                           {part.text.split('\n').map((line, i, arr) => (
                             <React.Fragment key={i}>
-                              {line}
+                              {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                               {i < arr.length - 1 ? <br /> : null}
                             </React.Fragment>
                           ))}
@@ -203,7 +203,7 @@ function RomCardView() {
                       ) : (
                         part.text.split('\n').map((line, i, arr) => (
                           <React.Fragment key={i}>
-                            {line}
+                            {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                             {i < arr.length - 1 ? <br /> : null}
                           </React.Fragment>
                         ))

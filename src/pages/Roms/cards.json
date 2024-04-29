@@ -4,7 +4,7 @@
             "image": "images/roms/matrixx-udc.jpg",
             "title": "Project Matrixx",
             "subheader": "April 27, 2024",
-            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• Give the ROM a day to stabilize if you're experiencing heating or battery drain problems."}],
+            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
             "androidVersion": "A14",
             "downloadOptions": [
                 { "text": "Project Matrixx", "url": "https://drive.google.com/file/d/1En7R2GqZSIgJfPOZLEQzialKqDqg8scI/view?usp=sharing"}, 
