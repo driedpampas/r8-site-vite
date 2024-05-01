@@ -1,8 +1,8 @@
 // CromCardView.tsx
 // fetching the json from the server on demand has to be fixed and will be enabled in a later version
-import React, { useState, /*useEffect*/ } from 'react';
+import { useState, Fragment/*, useEffect*/ } from 'react';
 import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
-import * as cardsData from './cards.json';
+import * as cardsData from './roms.json';
 import { BoldPill } from '../../components/BoldPill';
 
 //import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
@@ -128,7 +128,12 @@ function RomCardView() {
                 <BoldPill text={card.androidVersion} />
               </Stack>
             }
-            subheader={card.subheader}
+            subheader={card.subheader.split('\n').map((line, i, arr) => (
+              <Fragment key={i}>
+                {line}
+                {i < arr.length - 1 ? <br /> : null}
+              </Fragment>
+            ))}
           />
           <CardContent>
             <Typography variant="body2" component="p" color="textPrimary">
@@ -155,10 +160,10 @@ function RomCardView() {
                   </Link> 
                   : 
                   part.text.replace(/\\n/g, '\n').split('\n').map((line, i, arr) => (
-                    <React.Fragment key={i}>
+                    <Fragment key={i}>
                       {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                       {i < arr.length - 1 ? <br /> : null}
-                    </React.Fragment>
+                    </Fragment>
                   ))
                 )
               ))}
@@ -194,18 +199,18 @@ function RomCardView() {
                       {part.url ? (
                         <Link href={part.url} color="primary">
                           {part.text.split('\n').map((line, i, arr) => (
-                            <React.Fragment key={i}>
+                            <Fragment key={i}>
                               {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                               {i < arr.length - 1 ? <br /> : null}
-                            </React.Fragment>
+                            </Fragment>
                           ))}
                         </Link>
                       ) : (
                         part.text.split('\n').map((line, i, arr) => (
-                          <React.Fragment key={i}>
+                          <Fragment key={i}>
                             {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
                             {i < arr.length - 1 ? <br /> : null}
-                          </React.Fragment>
+                          </Fragment>
                         ))
                       )}
                     </span>

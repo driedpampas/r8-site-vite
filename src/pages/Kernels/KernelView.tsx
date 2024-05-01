@@ -1,4 +1,4 @@
-import { Stack, Typography, Card, CardContent, CardActions, Button, Paper, Alert, AlertTitle, SxProps, useTheme, useMediaQuery} from '@mui/material';
+import { Stack, Typography, Card, CardContent, CardActions, Button, Paper, SxProps, useTheme, useMediaQuery} from '@mui/material';
 import data from './kernels.json'; 
 import { BoldPill } from '../../components/BoldPill';
 
@@ -44,10 +44,6 @@ function KernelCardView () {
 
     return (
         <div>
-            <Alert severity="warning" onClose={() => { }} sx={{ marginBottom: '1em' }}>
-                <AlertTitle>Warning</AlertTitle>
-                These kernels are <strong>only for custom roms</strong>
-            </Alert>
             {kernelDataArray.map((kernelData) => (
                 <>
                     <Stack direction="row" alignItems="center" spacing={1}>

@@ -20,6 +20,12 @@
                 "description": "by Howwof",
                 "buttonTexts": ["Standard", "KernelSU"],
                 "links": ["https://github.com/HowWof/KernelSU_Builder/releases/download/8800441570/DivestOS-13-NoKernelSU.zip", "https://github.com/HowWof/KernelSU_Builder/releases/download/8800441570/DivestOS-13-KernelSU-v0.9.3.zip"]
+            },
+            {
+                "title": "Lava",
+                "description": "by Fastledx",
+                "buttonTexts": ["Standard", "KernelSU"],
+                "links": ["/hosted/kernels/lava.zip", "/hosted/kernels/lava-ksu.zip"]
             }
         ]
     }
