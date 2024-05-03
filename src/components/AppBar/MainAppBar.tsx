@@ -156,7 +156,7 @@ const MainAppBar: FC<HeaderProps> = ({ onDrawerToggle, window }) => {
                             </Tooltip>
                         </Grid>
                         <Grid item>
-                            <Tooltip title="@ZakAlbert94">
+                            <Tooltip title="@driedpampas">
                                 <IconButton color="inherit" sx={{ p: 0.5 }}>
                                     <Avatar alt="My Avatar" sx={{ width: 28, height: 28, fontSize: 14, bgcolor: 'primary.main', color: 'onPrimary.main' }}>
                                         Zk

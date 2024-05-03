@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "image": "images/recv/ofox.jpeg",
+            "title": "OrangeFox",
+            "subheader": "",
+            "description": [{ "text": "NOTES:\n• This can be used with both Realme UÌs and Custom Roms.\n• Recovery zip can be flashed with magisk as well.\n• If u face any bug then send logs, Ash will try to fix."}],
+            "androidVersion": "RUI 3 | 4",
+            "downloadOptions": [
+                { "text": "IMG file", "url": "https://github.com/RipperHybrid/OFOX-RMX3085/releases/download/8569915726/OrangeFox-24.04.05_A12.1-Unofficial-RMX3085.img"}, 
+                { "text": "ZIP file", "url": "https://github.com/RipperHybrid/OFOX-RMX3085/releases/download/8569915726/OrangeFox-24.04.05_A12.1-Unofficial-RMX3085.zip"}
+            ],
+            "more": []
+        },
+        {
+            "image": "images/recv/pbrp.jpeg",
+            "title": "Pitch Black",
+            "subheader": "",
+            "description": [{ "text": "NOTES:\n• This can be used with both Realme UÌs and Custom Roms.\n• Recovery zip can be flashed with magisk as well.\n• If u face any bug then send logs, Ash will try to fix."}],
+            "androidVersion": "RUI 3 | 4",
+            "downloadOptions": [
+                { "text": "IMG file", "url": "https://github.com/RipperHybrid/PBRP-RMX3085/releases/download/8569910887/PBRP-unofficial-RMX3085-Build-20240405.img"}, 
+                { "text": "ZIP file", "url": "https://github.com/RipperHybrid/PBRP-RMX3085/releases/download/8569910887/PBRP-RMX3085-4.0-20240405-1254-UNOFFICIAL.zip"}
+            ],
+            "more": []
+        },
+        {
+            "image": "images/recv/twrp.jpeg",
+            "title": "TeamWin",
+            "subheader": "",
+            "description": [{ "text": "NOTES:\n• This can be used with both Realme UÌs and Custom Roms.\n• Recovery zip can be flashed with magisk as well.\n• If u face any bug then send logs, Ash will try to fix."}],
+            "androidVersion": "RUI 2 | 3 | 4",
+            "downloadOptions": [
+                { "text": "IMG file", "url": "https://github.com/RipperHybrid/TWRP-RMX3085/releases/download/8569906323/TWRP-unofficial-RMX3085-Build-20240405.imgg"}
+            ],
+            "more": []
+        }, 
+        {
+            "image": "images/recv/shrp.jpeg",
+            "title": "SkyHawk",
+            "subheader": "",
+            "description": [{ "text": "NOTES:\n• This can be used with both Realme UÌs and Custom Roms.\n• Recovery zip can be flashed with magisk as well.\n• If u face any bug then send logs, Ash will try to fix."}],
+            "androidVersion": "RUI 3 | 4",
+            "downloadOptions": [
+                { "text": "IMG file", "url": "https://github.com/RipperHybrid/SHRP-RMX3085/releases/download/8000637826/SHRP-unofficial-RMX3085-Build-20240222.img"}, 
+                { "text": "ZIP file", "url": "https://github.com/RipperHybrid/SHRP-RMX3085/releases/download/8000637826/SHRP-Reborn_v3.2_Stable-Unofficial_RMX3085-22.02.24.zip"},
+                { "text": "Addon - Rescue", "url": "https://github.com/RipperHybrid/SHRP-RMX3085/releases/download/8000637826/SHRP-Reborn_AddonRescue_v3.2_RMX3085-22.02.24.zip"}
+            ],
+            "more": []
+        }
+    ]
+}

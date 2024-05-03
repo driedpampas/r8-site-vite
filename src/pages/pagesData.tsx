@@ -2,6 +2,7 @@ import { routerType } from "../types/router.types";
 //import About from "./About/About";
 import Roms from "./Roms/Roms";
 import Kernels from "./Kernels/Kernels";
+import Recovery from "./Recovery/Recovery";
 
 const pagesData: routerType[] = [
     /*{
@@ -18,7 +19,12 @@ const pagesData: routerType[] = [
         path: "Kernels",
         element: <Kernels />,
         title: "Kernels"
-    }
+    },
+    {
+        path: "Recoveries",
+        element: <Recovery />,
+        title: "Recoveries"
+    },
 ];
 
 export default pagesData;

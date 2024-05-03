@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import AndroidIcon from '@mui/icons-material/Android';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
+import AdbIcon from '@mui/icons-material/Adb';
 
 const MainDrawer: FC<DrawerProps> = (props) => {
     const { onClose, ...others } = props;
@@ -74,6 +75,14 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                                 {selectedIndex == 'Kernels' ? <AutoAwesomeMosaicIcon /> : <AutoAwesomeMosaicOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText>Kernels</ListItemText>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem >
+                        <ListItemButton component={Link} to='/Recoveries' selected={selectedIndex == 'Recoveries'} onClick={() => handleListItemClick('Recoveries')}>
+                            <ListItemIcon>
+                                {selectedIndex == 'Recoveries' ? <AdbIcon /> : <AdbIcon />}
+                            </ListItemIcon>
+                            <ListItemText>Recovery</ListItemText>
                         </ListItemButton>
                     </ListItem>
                     {/*<ListItem >
