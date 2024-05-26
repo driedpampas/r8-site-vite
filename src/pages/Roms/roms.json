@@ -1,6 +1,18 @@
 {
     "data": [
         {
+            "image": "images/roms/voltage3.4.jpg",
+            "title": "VoltageOS",
+            "subheader": "May 26, 2024",
+            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
+            "androidVersion": "A14",
+            "downloadOptions": [
+                { "text": "VoltageOS", "url": "https://drive.google.com/file/d/1QuFteM-qjkpO8FCLRn13IgiujRXtKF8I/view?usp=drive_link"}, 
+                {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download"}
+            ],
+            "more": [[{"text": "Changelog:\n• OPlus Extras Added in Settings/System\n• Pixel Thermal Added\n• New Kernel 3.14.336-sage"}]]
+        },
+        {
             "image": "images/roms/matrixx-udc.jpg",
             "title": "Project Matrixx",
             "subheader": "April 27, 2024",

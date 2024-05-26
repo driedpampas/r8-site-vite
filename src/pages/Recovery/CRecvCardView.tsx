@@ -1,7 +1,7 @@
 // CRecvCardView.tsx
 import { useState, Fragment } from 'react';
 import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
-import * as cardsData from './recv.json';
+import * as reCardsData from './recv.json';
 import { BoldPill } from '../../components/BoldPill';
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
@@ -24,10 +24,10 @@ function CRCardView() {
     downloadOptions: Array<{ text: string; url: string; }>;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const typedCards: CardType[] = (cardsData as any).data as CardType[];
+  const reCards: CardType[] = (reCardsData as any).data as CardType[];
 
-  const [expanded, setExpanded] = useState(new Array(typedCards.length).fill(false));
-  const [ariaExpanded, setAriaExpanded] = useState(new Array(typedCards.length).fill(false));
+  const [expanded, setExpanded] = useState(new Array(reCards.length).fill(false));
+  const [ariaExpanded, setAriaExpanded] = useState(new Array(reCards.length).fill(false));
   const handleExpandClick = (index: number) => {
     setExpanded(expanded.map((ex, i) => i === index ? !ex : false));
     setAriaExpanded(ariaExpanded.map((ex, i) => i === index ? !ex : ex));
@@ -37,7 +37,7 @@ function CRCardView() {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {setAnchorEl(event.currentTarget);};
   const handleClose = () => {setAnchorEl(null);};
 
-  const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(typedCards.length).fill(null));
+  const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(reCards.length).fill(null));
 
   const handleDownloadClick = (index: number) => (event: React.MouseEvent<HTMLElement>) => {
     const newDownloadAnchorEl = [...downloadAnchorEl];
@@ -84,10 +84,14 @@ function CRCardView() {
     margin: '0.5em',
     height: 'fit-content',
   };
+
+  const headerStyle: SxProps = {
+    paddingBottom: '0px'
+  }
   
   return (
     <Paper elevation={0} sx={{ ...paperStyle, height: 'auto', ...cardsContainerStyle }}>  
-      {typedCards.map((card: CardType, index: number) => (
+      {reCards.map((card: CardType, index: number) => (
         <Card key={index} sx={{ ...cardStyle }} variant="elevation">
           <CardMedia
             sx={{ height: 0, paddingTop: '56.25%', borderRadius: 5 }}
@@ -95,6 +99,7 @@ function CRCardView() {
             title={card.title}
           />
           <CardHeader
+            sx={{ ...headerStyle }}
             title={
               <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h6" component="div">{card.title}</Typography>

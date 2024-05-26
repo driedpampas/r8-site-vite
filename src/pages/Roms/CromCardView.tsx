@@ -4,6 +4,7 @@ import { useState, Fragment/*, useEffect*/ } from 'react';
 import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as cardsData from './roms.json';
 import { BoldPill } from '../../components/BoldPill';
+import './css.css'
 
 //import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
 //import ShareIcon from "@mui/icons-material/ShareOutlined";
@@ -136,7 +137,7 @@ function RomCardView() {
             ))}
           />
           <CardContent>
-            <Typography variant="body2" component="p" color="textPrimary">
+            <Typography variant="body2" component="p" color="textPrimary" className={expanded[index] ? '' : 'fade-out'}>
               {card.description.map((part, index) => (
                 part.menuItems && part.menuItems.length > 0 ? (
                   <span key={index}>
