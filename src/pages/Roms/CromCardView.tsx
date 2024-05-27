@@ -1,7 +1,7 @@
 // CromCardView.tsx
 // fetching the json from the server on demand has to be fixed and will be enabled in a later version
 import { useState, Fragment/*, useEffect*/ } from 'react';
-import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
+import { Tooltip, Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as cardsData from './roms.json';
 import { BoldPill } from '../../components/BoldPill';
 //import './css.css'
@@ -18,6 +18,7 @@ function RomCardView() {
   type CardType = {
     image: string;
     title: string;
+    author: string;
     subheader: string;
     description: Array<{
       text: string;
@@ -113,6 +114,8 @@ function RomCardView() {
     height: 'fit-content',
   };
   
+  const { palette } = useTheme();
+  
   return (
     <Paper elevation={0} sx={{ ...paperStyle, height: 'auto', ...cardsContainerStyle }}>  
       {typedCards.map((card: CardType, index: number) => (
@@ -127,6 +130,9 @@ function RomCardView() {
               <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h6" component="div">{card.title}</Typography>
                 <BoldPill text={card.androidVersion} />
+                <Tooltip title="Author">
+                  <BoldPill text={card.author} bgColor={palette.secondary.main} />
+                </Tooltip>              
               </Stack>
             }
             subheader={card.subheader.split('\n').map((line, i, arr) => (

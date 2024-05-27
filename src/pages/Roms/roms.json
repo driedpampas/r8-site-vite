@@ -3,6 +3,7 @@
         {
             "image": "images/roms/voltage3.4.jpg",
             "title": "VoltageOS",
+            "author": "Sanic",
             "subheader": "May 26, 2024",
             "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
             "androidVersion": "A14",
@@ -15,6 +16,7 @@
         {
             "image": "images/roms/matrixx-udc.jpg",
             "title": "Project Matrixx",
+            "author": "Sanic",
             "subheader": "April 27, 2024",
             "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
             "androidVersion": "A14",
@@ -27,6 +29,7 @@
         {
             "image": "images/roms/los21a.jpg",
             "title": "LineageOS 21",
+            "author": "Fastledx",
             "subheader": "April 26, 2024",
             "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• Clean flash recommended\n• Don't change kernel except for those in the post\n• Disable the build signature in trust\n• Flash with OFOX recovery."}],
             "androidVersion": "A14",
@@ -39,6 +42,7 @@
         {
             "image": "images/roms/derpfest-a14.jpg",
             "title": "DerpFest",
+            "author": "Fastledx",
             "subheader": "April 24, 2024",
             "androidVersion": "A14",
             "description": [
@@ -59,6 +63,7 @@
         {
             "image": "images/roms/los21.jpg",
             "title": "LineageOS 21",
+            "author": "Ben",
             "subheader": "February 19, 2024",
             "description": [
                 {
@@ -73,8 +78,7 @@
                     ]
                 },
                 {
-                    "text": " and with this ",
-                    "url": ""
+                    "text": " and with this "
                 },
                 {
                     "text": "module",
