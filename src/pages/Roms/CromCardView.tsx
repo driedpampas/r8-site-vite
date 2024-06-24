@@ -137,7 +137,8 @@ function RomCardView() {
                 <BoldPill text={card.androidVersion} />
                 <BoldPill
                   text={card.gapps ? 'GAPPS ✅' : 'GAPPS ❌'}
-                  bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'} // Use green for true, red for false
+                  bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'}
+                  textColor={card.gapps ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'}
                 />
               </Stack>
             }
