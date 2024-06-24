@@ -2,7 +2,7 @@
 import { useState, Fragment } from 'react';
 import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as reCardsData from './recv.json';
-import { BoldPill } from '../../components/BoldPill';
+import { BoldPill } from '../../components/Custom/BoldPill';
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";

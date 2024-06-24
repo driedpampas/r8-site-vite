@@ -11,6 +11,10 @@ const Kernels = () => {
                 <AlertTitle>Warning</AlertTitle>
                 These kernels are <strong>only for custom roms</strong>
             </Alert>
+            <Alert severity="error" onClose={() => { }} sx={{ marginBottom: '1em' }}>
+                <AlertTitle>Alert</AlertTitle>
+                <strong>Flashing SAGE on builds other than A14 may introduce issues.</strong>
+            </Alert>
                 <KernelCardView />
             </MainContainer>
         </>

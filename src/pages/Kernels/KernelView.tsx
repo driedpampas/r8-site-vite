@@ -1,6 +1,6 @@
 import { Stack, Typography, Card, CardContent, CardActions, Button, Paper, SxProps, useTheme, useMediaQuery} from '@mui/material';
 import data from './kernels.json'; 
-import { BoldPill } from '../../components/BoldPill';
+import { BoldPill } from '../../components/Custom/BoldPill';
 
 interface CardData {
     title: string;

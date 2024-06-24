@@ -3,7 +3,7 @@
 import { useState, Fragment/*, useEffect*/ } from 'react';
 import { Tooltip, Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
 import * as cardsData from './roms.json';
-import { BoldPill } from '../../components/BoldPill';
+import { BoldPill } from '../../components/Custom/BoldPill';
 //import './css.css'
 
 //import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
@@ -27,10 +27,15 @@ function RomCardView() {
     }>;
     more: { text: string; url: string; }[][];
     androidVersion: string;
+    gapps: boolean;
     downloadOptions: Array<{ text: string; url: string; }>;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const typedCards: CardType[] = (cardsData as any).data as CardType[];
+  const typedCards: CardType[] = (cardsData as any).data.map((card: any) => ({
+    ...card,
+    // Check if card.gapps is defined and equals 'yes', otherwise default to false
+    gapps: card.gapps ? card.gapps.toLowerCase() === 'yes' : false
+  }));
   
   /*const [typedCards, setTypedCards] = useState<CardType[]>([]);
   useEffect(() => {
@@ -128,19 +133,22 @@ function RomCardView() {
           <CardHeader
             title={
               <Stack direction="row" spacing={1} alignItems="center">
-                <Typography variant="h6" component="div">{card.title}</Typography>
+                <Typography variant="h5" component="div">{card.title}</Typography>
                 <BoldPill text={card.androidVersion} />
-                <Tooltip title="Author">
-                  <BoldPill text={card.author} bgColor={palette.secondary.main} />
-                </Tooltip>              
+                <BoldPill
+                  text={card.gapps ? 'GAPPS ✅' : 'GAPPS ❌'}
+                  bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'} // Use green for true, red for false
+                />
               </Stack>
             }
-            subheader={card.subheader.split('\n').map((line, i, arr) => (
-              <Fragment key={i}>
-                {line}
-                {i < arr.length - 1 ? <br /> : null}
-              </Fragment>
-            ))}
+            subheader={
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography component="div">{card.subheader}</Typography> 
+                <Tooltip title="Author">
+                  <BoldPill text={card.author} bgColor={palette.secondary.main} />
+                </Tooltip>
+              </Stack>
+            }
           />
           <CardContent>
             <Typography variant="body2" component="p" color="textPrimary" className={expanded[index]}>

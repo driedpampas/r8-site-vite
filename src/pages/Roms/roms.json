@@ -1,107 +1,112 @@
-{
-    "data": [
-        {
-            "image": "images/roms/voltage3.4.jpg",
-            "title": "VoltageOS",
-            "author": "Sanic",
-            "subheader": "May 26, 2024",
-            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
-            "androidVersion": "A14",
-            "downloadOptions": [
-                { "text": "VoltageOS", "url": "https://drive.google.com/file/d/1QuFteM-qjkpO8FCLRn13IgiujRXtKF8I/view?usp=drive_link"}, 
-                {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download"}
-            ],
-            "more": [[{"text": "Changelog:\n• OPlus Extras Added in Settings/System\n• Pixel Thermal Added\n• New Kernel 3.14.336-sage"}]]
-        },
-        {
-            "image": "images/roms/matrixx-udc.jpg",
-            "title": "Project Matrixx",
-            "author": "Sanic",
-            "subheader": "April 27, 2024",
-            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• GAPPS NOT INCLUDED\n• Flash with OFOX recovery.\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
-            "androidVersion": "A14",
-            "downloadOptions": [
-                { "text": "Project Matrixx", "url": "https://drive.google.com/file/d/1En7R2GqZSIgJfPOZLEQzialKqDqg8scI/view?usp=sharing"}, 
-                {"text": "GAPPS", "url": "https://github.com/MindTheGapps/14.0.0-arm64/releases/download/MindTheGapps-14.0.0-arm64-20240225_232108/MindTheGapps-14.0.0-arm64-20240225_232108.zip"}
-            ],
-            "more": []
-        },
-        {
-            "image": "images/roms/los21a.jpg",
-            "title": "LineageOS 21",
-            "author": "Fastledx",
-            "subheader": "April 26, 2024",
-            "description": [{ "text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• Clean flash recommended\n• Don't change kernel except for those in the post\n• Disable the build signature in trust\n• Flash with OFOX recovery."}],
-            "androidVersion": "A14",
-            "downloadOptions": [
-                { "text": "Lineage 21", "url": "https://mega.nz/file/V3FGHShQ#HcefDr24faQ5U1iMgmmnwr_1X7ICz0W1mbgNC57u5e8"}, {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download?use_mirror=unlimited&download=&failedmirror=kumisystems.dl.sourceforge.net"},
-                {"text": "Revolt KSU - undervolt", "url": "https://mega.nz/file/s7FCjYaS#r-QRS1LM3sZT4gZLHZqqYVYVi5U7TsLKWJfgMl85-v4"}
-            ],
-            "more": [[{"text": "Changelog:\n• Initial stable A14 Build\n• Based on April security patch & latest QPR2 sources\n• For CTS Fix flash ", "url": ""},{"text": "2 modules", "url": "https://github.com/daboynb/PlayIntegrityNEXT/tree/main/Fp_Downloader.apk%20to%20use%20with%20play%20integrity%20by%20chiteroman#instructions"}]]
-        },
-        {
-            "image": "images/roms/derpfest-a14.jpg",
-            "title": "DerpFest",
-            "author": "Fastledx",
-            "subheader": "April 24, 2024",
-            "androidVersion": "A14",
-            "description": [
-                {"text": "Notes:\n• Only use RealmeUI 3 firmware (C.18)\n• Clean flash recommended\n• Don't change kernel\n• Flash with OFOX recovery."}
-            ],
-            "more": [
-                [
-                    {
-                        "text": "Changelog:\n• Based on April security patch & latest QPR2 sources\n• Safetynet & CTS pass by default\n• New Revolt kernel and upstream to 4.14.340\n• Implemented fingerprintd thaw hack from OnePlus 3 (Faster unlocks)\n• Fix USB DAC\n• Remove unneeded USB functions\n• Switch to common USB service\n• Build common MediaTek Gadget HAL\n• Switch to powerhint and refactor and decrease interaction boost\n• Refactor and configure cgroup\n• Update IMS from plato\n• Fix volume bar\n• Switch to prebuilt libwifi-hal and build libwifi-hal-wrapper",
-                        "url": ""
-                    }
+{"data": [
+    {
+        "image": "images/roms/rising3.2.jpg",
+        "title": "RisingOS 3.2",
+        "author": "Sanic",
+        "subheader": "June 17, 2024",
+        "description": [{ "text": "Changelog:\n• Pixel launcher\n• Improved performance"}],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "RisingOS", "url": "https://drive.google.com/file/d/1n2dIe1CS1W6RoVaO8GFEOGXbJGvxKwq0/view?usp=sharing"}, 
+            {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download"}
+        ],
+        "more": []
+    },
+    {
+        "image": "images/roms/voltage3.4.jpg",
+        "title": "VoltageOS",
+        "author": "Sanic",
+        "subheader": "May 26, 2024",
+        "description": [{ "text": "Changelog:\n• OPlus Extras Added in Settings/System\n• Pixel Thermal Added\n• New Kernel 3.14.336-sage"}],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "VoltageOS", "url": "https://drive.google.com/file/d/1QuFteM-qjkpO8FCLRn13IgiujRXtKF8I/view?usp=drive_link"}, 
+            {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download"}
+        ],
+        "more": []
+    },
+    {
+        "image": "images/roms/matrixx-udc.jpg",
+        "title": "Project Matrixx",
+        "author": "Sanic",
+        "subheader": "April 27, 2024",
+        "description": [{ "text": "Notes:\n• **Give the ROM a day to stabilize if you're experiencing heating or battery drain problems.**"}],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "Project Matrixx", "url": "https://drive.google.com/file/d/1En7R2GqZSIgJfPOZLEQzialKqDqg8scI/view?usp=sharing"}, 
+            {"text": "GAPPS", "url": "https://github.com/MindTheGapps/14.0.0-arm64/releases/download/MindTheGapps-14.0.0-arm64-20240225_232108/MindTheGapps-14.0.0-arm64-20240225_232108.zip"}
+        ],
+        "more": []
+    },
+    {
+        "image": "images/roms/los21a.jpg",
+        "title": "LineageOS 21",
+        "author": "Fastledx",
+        "subheader": "April 26, 2024",
+        "description": [{ "text": "Notes:\n• Clean flash recommended\n• Don't change kernel except for those in the post\n• Disable the build signature in trust"}],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "Lineage 21", "url": "https://mega.nz/file/V3FGHShQ#HcefDr24faQ5U1iMgmmnwr_1X7ICz0W1mbgNC57u5e8"}, {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download?use_mirror=unlimited&download=&failedmirror=kumisystems.dl.sourceforge.net"},
+            {"text": "Revolt KSU - undervolt", "url": "https://mega.nz/file/s7FCjYaS#r-QRS1LM3sZT4gZLHZqqYVYVi5U7TsLKWJfgMl85-v4"}
+        ],
+        "more": [[{"text": "Changelog:\n• Initial stable A14 Build\n• Based on April security patch & latest QPR2 sources\n• For CTS Fix flash ", "url": ""},{"text": "2 modules", "url": "https://github.com/daboynb/PlayIntegrityNEXT/tree/main/Fp_Downloader.apk%20to%20use%20with%20play%20integrity%20by%20chiteroman#instructions"}]]
+    },
+    {
+        "image": "images/roms/derpfest-a14.jpg",
+        "title": "DerpFest",
+        "author": "Fastledx",
+        "subheader": "April 24, 2024",
+        "androidVersion": "A14",
+        "gapps": "yes",
+        "description": [
+            {"text": "Notes:\n• Clean flash recommended\n• Don't change kernel"}
+        ],
+        "more": [[{"text": "Changelog:\n• Based on April security patch & latest QPR2 sources\n• Safetynet & CTS pass by default\n• New Revolt kernel and upstream to 4.14.340\n• Implemented fingerprintd thaw hack from OnePlus 3 (Faster unlocks)\n• Fix USB DAC\n• Remove unneeded USB functions\n• Switch to common USB service\n• Build common MediaTek Gadget HAL\n• Switch to powerhint and refactor and decrease interaction boost\n• Refactor and configure cgroup\n• Update IMS from plato\n• Fix volume bar\n• Switch to prebuilt libwifi-hal and build libwifi-hal-wrapper"}]],
+        "downloadOptions": [
+            { "text": "Derpfest - GAPPS", "url": "https://mega.nz/file/Mz9zHawY#cuuWp0viRlQYTjFnXjdry0uk839Uk811UaB4DhACGkM"}
+        ]
+    },  
+    {
+        "image": "images/roms/los21.jpg",
+        "title": "LineageOS 21",
+        "author": "Ben",
+        "subheader": "February 19, 2024",
+        "description": [
+            {
+                "text": "Note: CTS at the moment it only works on these ",
+                "url": ""
+            },
+            {
+                "text": "kernels(KSU zips)",
+                "menuItems": [
+                    { "text": "KSU v0.7.6 - Standard", "url": "https://mega.nz/file/k2VEgJSA#gx1EK4lIhRi8D40oUPSppLQNK-xLNFWxrV5zJN9hlVc" },
+                    { "text": "KSU v0.7.6 - Undervolt", "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU" }
                 ]
-            ],
-            "downloadOptions": [
-                { "text": "Derpfest - GAPPS", "url": "https://mega.nz/file/Mz9zHawY#cuuWp0viRlQYTjFnXjdry0uk839Uk811UaB4DhACGkM"}
-            ]
-        },  
-        {
-            "image": "images/roms/los21.jpg",
-            "title": "LineageOS 21",
-            "author": "Ben",
-            "subheader": "February 19, 2024",
-            "description": [
+            },
+            {
+                "text": " and with this "
+            },
+            {
+                "text": "module",
+                "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU"
+            },
+            {
+                "text": ", in the next posts it will be by default in rom",
+                "url": ""
+            }
+        ],
+        "more": [
+            [
                 {
-                    "text": "Note: CTS at the moment it only works on these ",
-                    "url": ""
-                },
-                {
-                    "text": "kernels(KSU zips)",
-                    "menuItems": [
-                      { "text": "KSU v0.7.6 - Standard", "url": "https://mega.nz/file/k2VEgJSA#gx1EK4lIhRi8D40oUPSppLQNK-xLNFWxrV5zJN9hlVc" },
-                      { "text": "KSU v0.7.6 - Undervolt", "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU" }
-                    ]
-                },
-                {
-                    "text": " and with this "
-                },
-                {
-                    "text": "module",
-                    "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU"
-                },
-                {
-                    "text": ", in the next posts it will be by default in rom",
+                    "text": "Changelog:\n• Updated and synced with latest Lineage 21 sources\n• Upstream kernel to 4.14.328 (ASB-2023-11-05_4.14-stable)\n• Apply patches for Mali exploit CVE-2022-42703, CVE-2023-21255, CVE-2023-25012\n• Reduced logging in the kernel\n• Set default hotspot ssid to Realme 8\n• Fix UUIDs for AOSP audio pre-processing effects\n• Update power_profile from RealmeUI 4.0\n• Enable FS-Verity\n• Add sf threshold of next vsync prop from Pixel\n• Fixed fingerprint on Aod\n• Updated ims blobs (Thanx Sanic)\n\nNotes:",
                     "url": ""
                 }
-            ],
-            "more": [
-                [
-                    {
-                        "text": "Changelog:\n• Updated and synced with latest Lineage 21 sources\n• Upstream kernel to 4.14.328 (ASB-2023-11-05_4.14-stable)\n• Apply patches for Mali exploit CVE-2022-42703, CVE-2023-21255, CVE-2023-25012\n• Reduced logging in the kernel\n• Set default hotspot ssid to Realme 8\n• Fix UUIDs for AOSP audio pre-processing effects\n• Update power_profile from RealmeUI 4.0\n• Enable FS-Verity\n• Add sf threshold of next vsync prop from Pixel\n• Fixed fingerprint on Aod\n• Updated ims blobs (Thanx Sanic)\n\nNotes:\n• Only use RealmeUI 3 firmware (C.18)\n• Flash with OFOX recovery.",
-                        "url": ""
-                    }
-                ]
-            ],
-            "androidVersion": "A14",
-            "downloadOptions": [
-                { "text": "LineageOS 21 - Vanilla", "url": "https://mega.nz/file/9i0zlQjL#CPbAUmPfNOOrQQ_MvjwZcxOwesZrXqZm4kp7lICJcbQ" },
-                { "text": "Recommended GAPPs", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/10-Feb-2024/NikGapps-core-arm64-14-20240210-signed.zip/download" }
             ]
-        }
-    ]
-}
+        ],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "LineageOS 21 - Vanilla", "url": "https://mega.nz/file/9i0zlQjL#CPbAUmPfNOOrQQ_MvjwZcxOwesZrXqZm4kp7lICJcbQ" },
+            { "text": "Recommended GAPPs", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/10-Feb-2024/NikGapps-core-arm64-14-20240210-signed.zip/download" }
+        ]
+    }
+]}

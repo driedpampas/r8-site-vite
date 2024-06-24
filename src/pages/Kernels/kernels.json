@@ -4,6 +4,12 @@
         "version": "v9.3.0",
         "cards": [
             {
+                "title": "Sage",
+                "description": "by Sanic",
+                "buttonTexts": ["Standard", "KernelSU"],
+                "links": ["https://github.com/driedpampas/r8-site-vite-static/raw/main/sage-kernel/sage.zip" ,"https://github.com/driedpampas/r8-site-vite-static/raw/main/sage-kernel/sage-ksu.zip"]
+            },
+            {
                 "title": "LineageOS 20",
                 "description": "by Howwof",
                 "buttonTexts": ["Standard", "KernelSU"],
