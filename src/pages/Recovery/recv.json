@@ -31,7 +31,7 @@
             "description": [{ "text": "NOTES:\n• This can be used with both Realme UÌs and Custom Roms.\n• Recovery zip can be flashed with magisk as well.\n• If u face any bug then send logs, Ash will try to fix."}],
             "androidVersion": "RUI 2 | 3 | 4",
             "downloadOptions": [
-                { "text": "IMG file", "url": "https://github.com/RipperHybrid/TWRP-RMX3085/releases/download/8569906323/TWRP-unofficial-RMX3085-Build-20240405.imgg"}
+                { "text": "IMG file", "url": "https://github.com/RipperHybrid/TWRP-RMX3085/releases/download/8569906323/TWRP-unofficial-RMX3085-Build-20240405.img"}
             ],
             "more": []
         }, 

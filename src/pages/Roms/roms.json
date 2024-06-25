@@ -14,7 +14,7 @@
     },
     {
         "image": "images/roms/voltage3.4.jpg",
-        "title": "VoltageOS",
+        "title": "VoltageOS 3.4",
         "author": "Sanic",
         "subheader": "May 26, 2024",
         "description": [{ "text": "Changelog:\n• OPlus Extras Added in Settings/System\n• Pixel Thermal Added\n• New Kernel 3.14.336-sage"}],

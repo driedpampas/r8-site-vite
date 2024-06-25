@@ -1,13 +1,14 @@
-import { Stack, Alert, AlertTitle } from '@mui/material';
+import { Stack, Alert, AlertTitle, useMediaQuery } from '@mui/material';
 import MainContainer from '../../components/Container/MainContainer';
-import RomCardView from "./CromCardView"
+import RomCardView from "./RomCardView";
+import MobileRomCardView from "./MobileRomCardView"; // Assuming you have a separate component for mobile
 import ExAlert from '../../components/Custom/Alert';
 
 const Roms = () => {
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     return (
-        <>
-            <MainContainer>
+        <MainContainer>
             <ExAlert severity="info" onClose={() => {}} title="Public Service Announcement"
                 messages={[
                 <>ROMs might show <strong>Charging slowly</strong> and/or <strong>very low amperage, voltage and power</strong> on the lockscreen. That is a bug, your phone is still charging rapidly (if using a compatible fast charger).</>,
@@ -18,11 +19,16 @@ const Roms = () => {
                 <AlertTitle>Firmware Compatibility Info</AlertTitle>
                 Only use <strong>RealmeUI3 C.18</strong> as the base. Many ROMs recommend using <strong>OFOX</strong> as the custom recovery for installation.
             </Alert>
+            {isMobile ? (
+                <Stack spacing={6}>
+                    <MobileRomCardView />
+                </Stack>
+            ) : (
                 <Stack spacing={6}>
                     <RomCardView />
-                </Stack >
-            </MainContainer>
-        </>
+                </Stack>
+            )}
+        </MainContainer>
     );
 };
 

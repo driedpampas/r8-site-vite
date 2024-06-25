@@ -1,24 +1,18 @@
-// CromCardView.tsx
-// fetching the json from the server on demand has to be fixed and will be enabled in a later version
-import { useState, Fragment/*, useEffect*/ } from 'react';
-import { Tooltip, Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
-import * as cardsData from './roms.json';
+// CRecvCardView.tsx
+import { useState, Fragment } from 'react';
+import { Paper, useMediaQuery, Typography, useTheme, Link, Menu, MenuItem, Card, CardContent, SxProps, CardMedia, CardHeader, Collapse, IconButton ,Button,/* Avatar,*/ CardActions, Stack  } from '@mui/material';
+import * as reCardsData from './recv.json';
 import { BoldPill } from '../../components/Custom/BoldPill';
-//import './css.css'
 
-//import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
-//import ShareIcon from "@mui/icons-material/ShareOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 //import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
-//import MoreVertIcon from "@mui/icons-material/MoreVertOutlined";
 
-function RomCardView() {
+function CRCardView() {
   type CardType = {
     image: string;
     title: string;
-    author: string;
     subheader: string;
     description: Array<{
       text: string;
@@ -27,51 +21,23 @@ function RomCardView() {
     }>;
     more: { text: string; url: string; }[][];
     androidVersion: string;
-    gapps: boolean;
     downloadOptions: Array<{ text: string; url: string; }>;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const typedCards: CardType[] = (cardsData as any).data.map((card: any) => ({
-    ...card,
-    // Check if card.gapps is defined and equals 'yes', otherwise default to false
-    gapps: card.gapps ? card.gapps.toLowerCase() === 'yes' : false
-  }));
-  
-  /*const [typedCards, setTypedCards] = useState<CardType[]>([]);
-  useEffect(() => {
-    fetch('https://dry.nl.eu.org/json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(data => {
-        const cleanedData = data.replace(/[\n\t]/g, '');
-        const parsedData = JSON.parse(cleanedData);
-        if (Array.isArray(parsedData.data)) {
-          setTypedCards(parsedData.data);
-        } else {
-          console.error('Data is not an array:', parsedData.data);
-        }
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
-  }, []);*/
+  const reCards: CardType[] = (reCardsData as any).data as CardType[];
 
-  const [expanded, setExpanded] = useState(new Array(typedCards.length).fill(false));
-  const [ariaExpanded, setAriaExpanded] = useState(new Array(typedCards.length).fill(false));
+  const [expanded, setExpanded] = useState(new Array(reCards.length).fill(false));
+  const [ariaExpanded, setAriaExpanded] = useState(new Array(reCards.length).fill(false));
   const handleExpandClick = (index: number) => {
     setExpanded(expanded.map((ex, i) => i === index ? !ex : false));
     setAriaExpanded(ariaExpanded.map((ex, i) => i === index ? !ex : ex));
   };
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {setAnchorEl(event.currentTarget);};
-  const handleClose = () => {setAnchorEl(null);};
+  //const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  //const handleClick = (event: React.MouseEvent<HTMLElement>) => {setAnchorEl(event.currentTarget);};
+  //const handleClose = () => {setAnchorEl(null);};
 
-  const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(typedCards.length).fill(null));
+  const [downloadAnchorEl, setDownloadAnchorEl] = useState<(null | HTMLElement)[]>(new Array(reCards.length).fill(null));
 
   const handleDownloadClick = (index: number) => (event: React.MouseEvent<HTMLElement>) => {
     const newDownloadAnchorEl = [...downloadAnchorEl];
@@ -118,12 +84,14 @@ function RomCardView() {
     margin: '0.5em',
     height: 'fit-content',
   };
-  
-  const { palette } = useTheme();
+
+  const headerStyle: SxProps = {
+    paddingBottom: '0px'
+  }
   
   return (
     <Paper elevation={0} sx={{ ...paperStyle, height: 'auto', ...cardsContainerStyle }}>  
-      {typedCards.map((card: CardType, index: number) => (
+      {reCards.map((card: CardType, index: number) => (
         <Card key={index} sx={{ ...cardStyle }} variant="elevation">
           <CardMedia
             sx={{ height: 0, paddingTop: '56.25%', borderRadius: 5 }}
@@ -131,60 +99,21 @@ function RomCardView() {
             title={card.title}
           />
           <CardHeader
+            sx={{ ...headerStyle }}
             title={
               <Stack direction="row" spacing={1} alignItems="center">
-                <Typography variant="h5" component="div">{card.title}</Typography>
+                <Typography variant="h6" component="div">{card.title}</Typography>
                 <BoldPill text={card.androidVersion} />
-                <BoldPill
-                  text={card.gapps ? 'GAPPS ✅' : 'GAPPS ❌'}
-                  bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'}
-                  textColor={card.gapps ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'}
-                />
               </Stack>
             }
-            subheader={
-              <Stack direction="row" spacing={1} alignItems="center">
-                <Typography component="div">{card.subheader}</Typography> 
-                <Tooltip title="Author">
-                  <BoldPill text={card.author} bgColor={palette.secondary.main} />
-                </Tooltip>
-              </Stack>
-            }
+            subheader={card.subheader.split('\n').map((line, i, arr) => (
+              <Fragment key={i}>
+                {line}
+                {i < arr.length - 1 ? <br /> : null}
+              </Fragment>
+            ))}
           />
-          <CardContent>
-            <Typography variant="body2" component="p" color="textPrimary" className={expanded[index]}>
-              {card.description.map((part, index) => (
-                part.menuItems && part.menuItems.length > 0 ? (
-                  <span key={index}>
-                    <Link onClick={handleClick} color="primary">
-                      {part.text.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
-                    </Link>
-                    <Menu
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                    >
-                      {part.menuItems.map((item, index) => (
-                        <MenuItem key={index} onClick={handleClose} component="a" href={item.url}>{item.text}</MenuItem>
-                      ))}
-                    </Menu>
-                  </span>
-                ) : (
-                  part.url ? 
-                  <Link key={index} href={part.url} color="primary">
-                    {part.text.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
-                  </Link> 
-                  : 
-                  part.text.replace(/\\n/g, '\n').split('\n').map((line, i, arr) => (
-                    <Fragment key={i}>
-                      {line.split('**').map((part, i) => i % 2 === 0 ? part : <b>{part}</b>)}
-                      {i < arr.length - 1 ? <br /> : null}
-                    </Fragment>
-                  ))
-                )
-              ))}
-            </Typography>
-          </CardContent>
+
           <CardActions disableSpacing>
             {card.more.length > 0 && (
               <IconButton
@@ -241,4 +170,4 @@ function RomCardView() {
   );
 }
 
-export default RomCardView;
+export default CRCardView;
