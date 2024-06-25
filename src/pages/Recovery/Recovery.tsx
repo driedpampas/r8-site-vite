@@ -1,6 +1,6 @@
 import { Stack, /*Alert, AlertTitle*/ } from '@mui/material';
 import MainContainer from '../../components/Container/MainContainer';
-import CRCardView from "./RecvCardView"
+import RCardView from "./RecvCardView"
 import ExAlert from '../../components/Custom/Alert';
 
 const Recovery = () => {
@@ -17,7 +17,7 @@ const Recovery = () => {
                     ]}
                 />
                 <Stack spacing={6}>
-                    <CRCardView />
+                    <RCardView />
                 </Stack >
             </MainContainer>
         </>

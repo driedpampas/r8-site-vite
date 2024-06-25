@@ -39,70 +39,52 @@
         "more": []
     },
     {
-        "image": "images/roms/los21a.jpg",
-        "title": "LineageOS 21",
-        "author": "Fastledx",
-        "subheader": "April 26, 2024",
-        "description": [{ "text": "Notes:\n• Clean flash recommended\n• Don't change kernel except for those in the post\n• Disable the build signature in trust"}],
-        "androidVersion": "A14",
-        "downloadOptions": [
-            { "text": "Lineage 21", "url": "https://mega.nz/file/V3FGHShQ#HcefDr24faQ5U1iMgmmnwr_1X7ICz0W1mbgNC57u5e8"}, {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download?use_mirror=unlimited&download=&failedmirror=kumisystems.dl.sourceforge.net"},
-            {"text": "Revolt KSU - undervolt", "url": "https://mega.nz/file/s7FCjYaS#r-QRS1LM3sZT4gZLHZqqYVYVi5U7TsLKWJfgMl85-v4"}
-        ],
-        "more": [[{"text": "Changelog:\n• Initial stable A14 Build\n• Based on April security patch & latest QPR2 sources\n• For CTS Fix flash ", "url": ""},{"text": "2 modules", "url": "https://github.com/daboynb/PlayIntegrityNEXT/tree/main/Fp_Downloader.apk%20to%20use%20with%20play%20integrity%20by%20chiteroman#instructions"}]]
-    },
-    {
-        "image": "images/roms/derpfest-a14.jpg",
-        "title": "DerpFest",
-        "author": "Fastledx",
-        "subheader": "April 24, 2024",
-        "androidVersion": "A14",
-        "gapps": "yes",
+        "image": "images/roms/afterlife-v6.jpg",
+        "title": "Afterlife V6 Greed",
+        "author": "Sukuna",
+        "subheader": "February 24, 2024",
+        "androidVersion": "A13",
+        "gapps": "no",
         "description": [
-            {"text": "Notes:\n• Clean flash recommended\n• Don't change kernel"}
+            {"text": "Notes:\n• Tell me, proper the logcat\n• Added minute fixes to make rom more smooth and stable\n•Overlapping icons on qs is fixed."}
         ],
-        "more": [[{"text": "Changelog:\n• Based on April security patch & latest QPR2 sources\n• Safetynet & CTS pass by default\n• New Revolt kernel and upstream to 4.14.340\n• Implemented fingerprintd thaw hack from OnePlus 3 (Faster unlocks)\n• Fix USB DAC\n• Remove unneeded USB functions\n• Switch to common USB service\n• Build common MediaTek Gadget HAL\n• Switch to powerhint and refactor and decrease interaction boost\n• Refactor and configure cgroup\n• Update IMS from plato\n• Fix volume bar\n• Switch to prebuilt libwifi-hal and build libwifi-hal-wrapper"}]],
+        "more": [[{"text": "Changelog:\n- Merged February security patches\n- Bump Version to 6.0 Codename Greedy\n- Switch Android Version To 13 EOL.\n- Adapt Wallpaper default to version Greedy\n- Introduce AfterLife Quick Setting Style V.2 (Inspiration From Oos).\n- Drop Qs profil Picture.\n- Switch to Memocho (drop dogbin).\n- Hide Notification Media Player\n- Add Wifi Standart Icon.\n- Implement Glass Blur Effect.\n- Move Overlay Notch to Display Settings.\n- Add NotchBar Killer.\n- Add Kill Recent Task.\n- Make Custom Ls Disable by default.\n- Add Customize Tittle Bar and base layout.\n- Drop Lottie Header Settings."}]],
         "downloadOptions": [
-            { "text": "Derpfest - GAPPS", "url": "https://mega.nz/file/Mz9zHawY#cuuWp0viRlQYTjFnXjdry0uk839Uk811UaB4DhACGkM"}
+            { "text": "Afterlife (Google Drive)", "url": "https://drive.google.com/uc?id=1BzvEjo7N1RnDlUmbVXY43RQnUYU14dJS&export=download"},
+            { "text": "Afterlife (SourceForge)", "url": "https://sourceforge.net/projects/testroms/files/AfterLife-V6.0-Greedy-OFFICIAL-nashc-20240224-Vanilla.zip/download"},
+            { "text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-T/10-Feb-2024/NikGapps-basic-arm64-13-20240210-signed.zip/download"}
         ]
-    },  
+    },    {
+        "image": "images/roms/crdroid-a14.jpg",
+        "title": "CrDroid",
+        "author": "vlad_zaza",
+        "subheader": "February 23, 2024",
+        "description": [{ "text": "📃 Changelog:\n ➕ Initial Android 14 build\n ➕ Upstreamed kernel 4.14.336"}],
+        "androidVersion": "A14",
+        "downloadOptions": [
+            { "text": "CrDroid", "url": "https://mega.nz/file/PyxDGKwQ#nj6v-L_x_eTtIlrFv661ErK5Gjf5eFHjrsyiN5JPU0k"}, 
+            {"text": "GAPPS (MindTheGapps)", "url": "https://github.com/MindTheGapps/14.0.0-arm64/releases/download/MindTheGapps-14.0.0-arm64-20240225_232108/MindTheGapps-14.0.0-arm64-20240225_232108.zip"}
+        ],
+        "more": []
+    },
     {
         "image": "images/roms/los21.jpg",
         "title": "LineageOS 21",
         "author": "Ben",
         "subheader": "February 19, 2024",
         "description": [
-            {
-                "text": "Note: CTS at the moment it only works on these ",
-                "url": ""
-            },
-            {
-                "text": "kernels(KSU zips)",
+            { "text": "Note: CTS at the moment it only works on these " },
+            {"text": "kernels(KSU zips)",
                 "menuItems": [
                     { "text": "KSU v0.7.6 - Standard", "url": "https://mega.nz/file/k2VEgJSA#gx1EK4lIhRi8D40oUPSppLQNK-xLNFWxrV5zJN9hlVc" },
                     { "text": "KSU v0.7.6 - Undervolt", "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU" }
                 ]
             },
-            {
-                "text": " and with this "
-            },
-            {
-                "text": "module",
-                "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU"
-            },
-            {
-                "text": ", in the next posts it will be by default in rom",
-                "url": ""
-            }
+            { "text": " and with this " },
+            { "text": "module", "url": "https://mega.nz/file/dykjmQza#udUevOgqQtutrqaZFOdIN4TCXfhSlYL9WrKcZHLSVAU" },
+            { "text": ", in the next posts it will be by default in rom" }
         ],
-        "more": [
-            [
-                {
-                    "text": "Changelog:\n• Updated and synced with latest Lineage 21 sources\n• Upstream kernel to 4.14.328 (ASB-2023-11-05_4.14-stable)\n• Apply patches for Mali exploit CVE-2022-42703, CVE-2023-21255, CVE-2023-25012\n• Reduced logging in the kernel\n• Set default hotspot ssid to Realme 8\n• Fix UUIDs for AOSP audio pre-processing effects\n• Update power_profile from RealmeUI 4.0\n• Enable FS-Verity\n• Add sf threshold of next vsync prop from Pixel\n• Fixed fingerprint on Aod\n• Updated ims blobs (Thanx Sanic)\n\nNotes:",
-                    "url": ""
-                }
-            ]
-        ],
+        "more": [[{ "text": "Changelog:\n• Updated and synced with latest Lineage 21 sources\n• Upstream kernel to 4.14.328 (ASB-2023-11-05_4.14-stable)\n• Apply patches for Mali exploit CVE-2022-42703, CVE-2023-21255, CVE-2023-25012\n• Reduced logging in the kernel\n• Set default hotspot ssid to Realme 8\n• Fix UUIDs for AOSP audio pre-processing effects\n• Update power_profile from RealmeUI 4.0\n• Enable FS-Verity\n• Add sf threshold of next vsync prop from Pixel\n• Fixed fingerprint on Aod\n• Updated ims blobs (Thanx Sanic)\n\nNotes:" }]],
         "androidVersion": "A14",
         "downloadOptions": [
             { "text": "LineageOS 21 - Vanilla", "url": "https://mega.nz/file/9i0zlQjL#CPbAUmPfNOOrQQ_MvjwZcxOwesZrXqZm4kp7lICJcbQ" },

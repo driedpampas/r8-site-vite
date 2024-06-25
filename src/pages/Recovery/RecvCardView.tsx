@@ -9,7 +9,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 //import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 
-function CRCardView() {
+function RCardView() {
   type CardType = {
     image: string;
     title: string;
@@ -170,4 +170,4 @@ function CRCardView() {
   );
 }
 
-export default CRCardView;
+export default RCardView;
