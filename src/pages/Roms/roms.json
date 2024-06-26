@@ -6,9 +6,9 @@
         "subheader": "June 17, 2024",
         "description": [{ "text": "Changelog:\n• Pixel launcher\n• Improved performance"}],
         "androidVersion": "A14",
+        "gapps": "yes",
         "downloadOptions": [
-            { "text": "RisingOS", "url": "https://drive.google.com/file/d/1n2dIe1CS1W6RoVaO8GFEOGXbJGvxKwq0/view?usp=sharing"}, 
-            {"text": "GAPPS", "url": "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-U/20-Apr-2024/NikGapps-core-arm64-14-20240420-signed.zip/download"}
+            { "text": "RisingOS", "url": "https://drive.google.com/file/d/1thLIsvVFpakxthILnhhF-adqWbd9DNJ8/view?usp=sharing"} 
         ],
         "more": []
     },
