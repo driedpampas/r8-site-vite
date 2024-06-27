@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, AlertTitle } from '@mui/material';
+import { Alert, AlertTitle, Box } from '@mui/material';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 type ExAlertProps = {
@@ -22,10 +22,9 @@ const ExAlert: React.FC<ExAlertProps> = ({ severity, onClose, title, messages })
         <Alert severity={severity} onClose={onClose} sx={{ marginBottom: '1em' }} icon={getIcon()}>
           <AlertTitle>{title}</AlertTitle>
             {messages.map((message, index) => (
-                <React.Fragment key={index}>
-                {message}
-                <br />
-                </React.Fragment>
+                <Box key={index} sx={{ marginBottom: '0.5em' }}>
+                    {message}
+                </Box>
             ))}
         </Alert>
     );
