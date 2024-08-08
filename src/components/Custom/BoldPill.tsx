@@ -1,11 +1,11 @@
 import { Stack, Typography, useTheme } from '@mui/material';
 import { CSSProperties } from 'react';
 
-interface BoldPillProps {
+export interface BoldPillProps {
     text: string;
     style?: CSSProperties;
     bgColor?: string;
-    textColor?: string; // Add this line
+    textColor?: string;
 }
 
 export const BoldPill = ({ text, style, bgColor, textColor }: BoldPillProps) => {

@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Realme UI",
+        "version": "3",
+        "cards": {
+            "IN": [
+                {
+                    "title": "C.05",
+                    "links": ["https://drive.google.com/file/d/12OJ8qD9XoFEuC3oo70sBlBGFfQdbtHyw/view?usp=share_link"]
+                },
+                {
+                    "title": "C.09",
+                    "links": ["https://drive.google.com/file/d/1h0KaVWthBtwm4SJHPpRGLJfLPcB0XmzF/view?usp=share_link"]
+                },
+                {
+                    "title": "C.11",
+                    "links": ["https://drive.google.com/file/d/1tHij6Bz-QU4LYm3L5QijmPab3YQRDXC9/view?usp=share_link"]
+                },
+                {
+                    "title": "C.12",
+                    "links": ["https://drive.google.com/file/d/1z4FVCo0J5u3VPgT7-kpKKvjdylzxJpi1/view?usp=share_link"]
+                },
+                {
+                    "title": "C.18",
+                    "links": ["https://server.nashc.workers.dev/0:/Fimwares/RMX3085_C.18_IN_FW_by_SG.rar"]
+                }],
+            "GL": [
+                {
+                    "title": "C.11",
+                    "links": ["https://drive.google.com/file/d/192KboBbW1eXzb6DWVlGAkGE-PEcgnHBJ/view?usp=sharing"]
+                }],
+            "TH": [
+                {
+                    "title": "C.11",
+                    "links": ["https://drive.google.com/file/d/192KboBbW1eXzb6DWVlGAkGE-PEcgnHBJ/view?usp=sharing"]
+                },
+                {
+                    "title": "C.18",
+                    "links": ["https://drive.google.com/uc?id=1MPLnD4ofrW50u8V4C5I5srGucHJg60XW&export=download"]
+                }
+            ]
+        }
+    }
+]
