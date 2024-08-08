@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLessOutlined";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { cardsContainerStyle, cardStyle, cardMediaStyle, cardContentStyle, cardTextContainerStyle, cardFooterStyle, cardFooterActionsStyle, cardContentPaddingStyle, cardHeaderText } from './styles';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 function MobileRomCardView() {
   type CardType = {
@@ -78,11 +79,12 @@ function MobileRomCardView() {
         >
           <div style={cardContentStyle}>
             <CardMedia sx={cardMediaStyle} image={card.image} title={card.title} />
-            <div style={cardTextContainerStyle}>
-              <div style={cardHeaderText}>
+            <Grid container spacing={2} style={cardTextContainerStyle}>
+              <Grid xs style={cardHeaderText}>
                 <Typography variant="h5" component="div">{card.title}</Typography>
                 <Typography variant="subtitle1" component="div">{card.subheader}</Typography>
-              </div>
+              </Grid>
+                <Grid xs={5}>
                 <Button 
                   startIcon={<CloudDownloadIcon />} 
                   variant="tonal" 
@@ -95,18 +97,19 @@ function MobileRomCardView() {
                 >
                   Download
                 </Button>
-              <Menu 
-                anchorEl={downloadAnchorEl[index]} 
-                open={Boolean(downloadAnchorEl[index])} 
-                onClose={handleDownloadClose(index)}
-              >
-                {card.downloadOptions.map((option, optionIndex) => (
-                  <MenuItem key={optionIndex} onClick={handleDownloadClose(index)} component="a" href={option.url}>
-                    {option.text}
-                  </MenuItem>
-                ))}
-              </Menu>
-              <div style={cardFooterStyle}>
+                <Menu 
+                  anchorEl={downloadAnchorEl[index]} 
+                  open={Boolean(downloadAnchorEl[index])} 
+                  onClose={handleDownloadClose(index)}
+                >
+                  {card.downloadOptions.map((option, optionIndex) => (
+                    <MenuItem key={optionIndex} onClick={handleDownloadClose(index)} component="a" href={option.url}>
+                      {option.text}
+                    </MenuItem>
+                  ))}
+                </Menu>
+                </Grid>
+              <Grid xs={10} style={cardFooterStyle}>
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Tooltip title="Author">
                     <BoldPill text={card.author} bgColor={theme.palette.secondary.main} />
@@ -118,8 +121,8 @@ function MobileRomCardView() {
                     textColor={card.gapps ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'}
                   />
                 </Stack>
-              </div>
-              <div style={cardFooterActionsStyle}>
+              </Grid>
+              <Grid xs={2} style={cardFooterActionsStyle}>
                 <CardActions disableSpacing>
                   {card.description.length > 0 && (
                     <IconButton
@@ -132,8 +135,8 @@ function MobileRomCardView() {
                     </IconButton>
                   )}
                 </CardActions>
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </div>
           <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
             <CardContent style={cardContentPaddingStyle}>
@@ -178,3 +181,79 @@ function MobileRomCardView() {
 }
 
 export default MobileRomCardView;
+
+                {/*<Grid container spacing={1} alignItems="center">
+                  <Grid xs='auto'>
+                    <Tooltip title="Author">
+                      <BoldPill text={card.author} bgColor={theme.palette.secondary.main} />
+                    </Tooltip>
+                    <BoldPill text={card.androidVersion} />
+                  </Grid>
+                  <Grid xs container direction="column" justifyContent="center">
+                    <BoldPill
+                      text={card.gapps ? 'GAPPS ✅' : 'GAPPS ❌'}
+                      bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'}
+                      textColor={card.gapps ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'}
+                    />
+                  </Grid>
+                </Grid>*/}
+
+{/*          <div style={cardContentStyle}>
+            <CardMedia sx={cardMediaStyle} image={card.image} title={card.title} />
+            <div style={cardTextContainerStyle}>
+              <div style={cardHeaderText}>
+                <Typography variant="h5" component="div">{card.title}</Typography>
+                <Typography variant="subtitle1" component="div">{card.subheader}</Typography>
+              </div>
+                <Button 
+                  startIcon={<CloudDownloadIcon />} 
+                  variant="tonal" 
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handleDownloadClick(index)(event);
+                  }} 
+                  sx={{ margin: '0.5em 0.5em' }} 
+                  color="primary"
+                >
+                  Download
+                </Button>
+                <Menu 
+                  anchorEl={downloadAnchorEl[index]} 
+                  open={Boolean(downloadAnchorEl[index])} 
+                  onClose={handleDownloadClose(index)}
+                >
+                  {card.downloadOptions.map((option, optionIndex) => (
+                    <MenuItem key={optionIndex} onClick={handleDownloadClose(index)} component="a" href={option.url}>
+                      {option.text}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              <div style={cardFooterStyle}>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <Tooltip title="Author">
+                    <BoldPill text={card.author} bgColor={theme.palette.secondary.main} />
+                  </Tooltip>
+                  <BoldPill text={card.androidVersion} />
+                  <BoldPill
+                    text={card.gapps ? 'GAPPS ✅' : 'GAPPS ❌'}
+                    bgColor={card.gapps ? 'rgba(0, 150, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)'}
+                    textColor={card.gapps ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'}
+                  />
+                </Stack>
+              </div>
+              <div style={cardFooterActionsStyle}>
+                <CardActions disableSpacing>
+                  {card.description.length > 0 && (
+                    <IconButton
+                      color="inherit"
+                      aria-expanded={ariaExpanded[index]}
+                      aria-label="show more"
+                      sx={{ marginRight: '0.5em' }}
+                    >
+                      {expanded[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </IconButton>
+                  )}
+                </CardActions>
+              </div>
+            </div>
+          </div>*/}

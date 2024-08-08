@@ -39,10 +39,6 @@ export const cardContentStyle: React.CSSProperties = {
   position: 'relative',
 };
 
-export const cardHeaderText: React.CSSProperties = {
-    marginLeft: '0.5em'
-}
-
 export const cardTextContainerStyle: React.CSSProperties = {
   position: 'absolute',
   top: 0,
@@ -50,33 +46,38 @@ export const cardTextContainerStyle: React.CSSProperties = {
   padding: '0.5em',
   color: 'white',
   width: '100%',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'flex-start',
-  minHeight: '100%',
+  height: '100%',
+  margin: 0
 };
 
+// Adjust cardHeaderText to naturally flow into the grid without specific positioning
+export const cardHeaderText: React.CSSProperties = {
+  gridColumn: '1 / 2',
+  gridRow: '1 / 2',
+  marginLeft: '0.5em',
+};
+
+// Adjust cardFooterStyle for the author and version pills, placing them in the bottom left
 export const cardFooterStyle: React.CSSProperties = {
-  bottom: 0,
-  left: 0,
-  padding: '0.5em',
-  width: '100%',
+  gridColumn: '1 / 2',
+  gridRow: '2 / 3',
   display: 'flex',
   justifyContent: 'flex-start',
-  alignItems: 'flex-start',
-  position: 'absolute',
+  alignItems: 'center',
+  padding: '0.5em'
 };
 
+// Adjust cardFooterActionsStyle for the expand button, placing it in the bottom right
 export const cardFooterActionsStyle: React.CSSProperties = {
-  bottom: 0,
-  right: 0,
-  padding: '0.5em',
-  width: '100%',
+  gridColumn: '2 / 3',
+  gridRow: '2 / 3',
   display: 'flex',
   justifyContent: 'flex-end',
-  position: 'absolute',
+  padding: '0.5em',
 };
 
+// The Button and Menu components inside the JSX will naturally flow into their grid positions.
+// You might need to adjust their container divs or directly apply grid positioning if they are not aligning as expected.
 export const cardContentPaddingStyle: React.CSSProperties = {
   paddingBottom: 16,
 };

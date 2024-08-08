@@ -26,3 +26,4 @@ dist-ssr
 # other
 src-old
 *.code-workspace
+forks/

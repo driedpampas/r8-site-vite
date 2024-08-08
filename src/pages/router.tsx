@@ -5,9 +5,11 @@ import MainLayout from "./Layout/MainLayout";
 import NotFoundPage from "./404/404.tsx";
 
 const Router = () => {
-    const pageRoutes = pagesData.map(({ path, title, element }: routerType) => {
-        return <Route key={title} path={`/${path}`} element={element} />;
-    });
+    const pageRoutes = pagesData
+        .filter(({ visible }) => visible)
+        .map(({ path, title, element }: routerType) => {
+            return <Route key={title} path={`/${path}`} element={element} />;
+        });
 
     return (
         <Routes>

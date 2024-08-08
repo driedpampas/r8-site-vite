@@ -1,49 +1,39 @@
-import { Box, Drawer, DrawerProps, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Box, Drawer, DrawerProps, List, ListItem, ListItemText, Toolbar, Typography } from "@mui/material";
 import { FC, useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
-
-//import InfoIcon from '@mui/icons-material/Info';
-//import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
+import { useLocation } from "react-router-dom";
+import Filter3Icon from '@mui/icons-material/Filter3';
 import AndroidIcon from '@mui/icons-material/Android';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
 import AdbIcon from '@mui/icons-material/Adb';
+import NavigationItem from "../Custom/NavItem";
 
 const MainDrawer: FC<DrawerProps> = (props) => {
     const { onClose, ...others } = props;
 
-    /*const categories = [
+    const fwversions = [
         {
-            id: 'Guide',
+            id: 'RealmeUI Firmware',
             children: [
                 {
-                    id: 'Authentication',
-                    icon: <PeopleIcon />,
-                },
-                { id: 'Database', icon: <PeopleIcon /> },
-                { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-                { id: 'Hosting', icon: <PublicIcon /> },
-                { id: 'Functions', icon: <SettingsEthernetIcon /> },
-                {
-                    id: 'Machine learning',
-                    icon: <SettingsInputComponentIcon />,
-                },
-            ],
-        },
-    ];*/
+                    id: 'RealmeUI 3', icon: <Filter3Icon />, href: 'RUI3'
+                }
+            ]
+        }
+    ];
 
     const location = useLocation();
     const [selectedIndex, setSelectedIndex] = useState(location.pathname.replace('/', ''));
 
     useEffect(() => {
         setSelectedIndex(location.pathname.replace('/', ''));
-    }, [location.pathname])
-
+    }, [location.pathname]);
 
     const handleListItemClick = (index: string) => {
         setSelectedIndex(index);
         onClose?.({}, 'backdropClick');
     };
+
     return (
         <Drawer {...others} onClose={onClose}>
             <Toolbar >
@@ -51,50 +41,34 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                     Realme 8 Resources
                 </Typography>
             </Toolbar>
-            <List >
+            <List>
                 <Box>
-                    {/*<ListItem >
-                        <ListItemButton component={Link} to='/About' selected={selectedIndex == 'About'} onClick={() => handleListItemClick('About')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'About' ? <InfoIcon /> : <InfoIconOutlined />}
-                            </ListItemIcon>
-                            <ListItemText>About</ListItemText>
-                        </ListItemButton>
-                    </ListItem>*/}
-                    <ListItem >
-                        <ListItemButton component={Link} to='/Roms' selected={selectedIndex == 'Roms'} onClick={() => handleListItemClick('Roms')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'Roms' ? <AndroidIcon /> : <AndroidIcon />}
-                            </ListItemIcon>
-                            <ListItemText>Roms</ListItemText>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem >
-                        <ListItemButton component={Link} to='/Kernels' selected={selectedIndex == 'Kernels'} onClick={() => handleListItemClick('Kernels')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'Kernels' ? <AutoAwesomeMosaicIcon /> : <AutoAwesomeMosaicOutlinedIcon />}
-                            </ListItemIcon>
-                            <ListItemText>Kernels</ListItemText>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem >
-                        <ListItemButton component={Link} to='/Recoveries' selected={selectedIndex == 'Recoveries'} onClick={() => handleListItemClick('Recoveries')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'Recoveries' ? <AdbIcon /> : <AdbIcon />}
-                            </ListItemIcon>
-                            <ListItemText>Recovery</ListItemText>
-                        </ListItemButton>
-                    </ListItem>
-                    {/*<ListItem >
-                        <ListItemButton component={Link} to='/Landing' selected={selectedIndex == 'Landing'} onClick={() => handleListItemClick('Landing')}>
-                            <ListItemIcon>
-                                {selectedIndex == 'Landing' ? <EngineeringIcon /> : <EngineeringOutlinedIcon />}
-                            </ListItemIcon>
-                            <ListItemText>Landing</ListItemText>
-                        </ListItemButton>
-                    </ListItem>*/}
+                    <NavigationItem
+                        to="/Roms"
+                        selectedIndex={selectedIndex}
+                        handleListItemClick={() => handleListItemClick('/Roms')}
+                        icon={<AndroidIcon />}
+                        selectedIcon={<AndroidIcon />}
+                        label="Roms"
+                    />
+                    <NavigationItem
+                        to="/Kernels"
+                        selectedIndex={selectedIndex}
+                        handleListItemClick={() => handleListItemClick('/Kernels')}
+                        icon={<AutoAwesomeMosaicOutlinedIcon />}
+                        selectedIcon={<AutoAwesomeMosaicIcon />}
+                        label="Kernels"
+                    />
+                    <NavigationItem
+                        to="/Recoveries"
+                        selectedIndex={selectedIndex}
+                        handleListItemClick={() => handleListItemClick('/Recoveries')}
+                        icon={<AdbIcon />}
+                        selectedIcon={<AdbIcon />}
+                        label="Recovery"
+                    />
                 </Box>
-                {/*{categories.map(({ id, children }) => (
+                {fwversions.map(({ id, children }) => (
                     <Box key={id}>
                         <ListItem sx={{ py: 2, px: 3 }}>
                             <ListItemText sx={{ fontWeight: 'bold' }}>
@@ -103,16 +77,19 @@ const MainDrawer: FC<DrawerProps> = (props) => {
                                 </Typography>
                             </ListItemText>
                         </ListItem>
-                        {children.map(({ id: childId, icon }) => (
-                            <ListItem key={childId}>
-                                <ListItemButton selected={selectedIndex == childId} onClick={() => handleListItemClick(childId)}>
-                                    <ListItemIcon>{icon}</ListItemIcon>
-                                    <ListItemText>{childId}</ListItemText>
-                                </ListItemButton>
-                            </ListItem>
+                        {children.map(({ id: childId, icon, href }) => (
+                            <NavigationItem
+                                key={childId}
+                                to={`/${href}`}
+                                selectedIndex={selectedIndex}
+                                handleListItemClick={() => handleListItemClick(childId)}
+                                icon={icon}
+                                selectedIcon={icon}
+                                label={childId}
+                            />
                         ))}
                     </Box>
-                ))}*/}
+                ))}
             </List>
         </Drawer>
     );
